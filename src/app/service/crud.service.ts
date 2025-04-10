@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Etudiant } from '../Entities/Etudiant.Entities';
 import { Encadrant } from '../Entities/Encadrant.Entities';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SaveJournal } from '../Entities/SaveJournal';
+import { SaveRapport } from '../Entities/SaveRapport';
 
 
 @Injectable({
@@ -28,6 +28,11 @@ export class CrudService {
     addJournal(saveJournal: SaveJournal) {
       return this.http.post<any>(this.apiUrl + '/journal', saveJournal);
     }
+
+    addRapport(saveRapport: SaveRapport) {
+      return this.http.post<any>(this.apiUrl + '/rapport', saveRapport);
+    }
+
 
     addEncadrant(encadrant: Encadrant) {
       return this.http.post<any>(this.apiUrl + "/Encadrant", encadrant);

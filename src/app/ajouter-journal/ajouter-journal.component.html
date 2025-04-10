@@ -465,19 +465,19 @@
 
                                                 </div>
                                             </div>
-                                            <form>
+                                            <form (ngSubmit)="addNewjournal()" [formGroup]="contactForm">
 
                                             <div class="col-sm-12">
 
 
                                                     <div>
                                                         <div class="input-group mb-6">
-                                                            <input formControlName="journal"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                            <input formControlName="journal" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                                                           </div>
 
 
                                                     </div>
-                                                    <button class="btn btn-primary" type="button" id="inputGroupFileAddon03">Ajouter</button>
+                                                    <button class="btn btn-primary" type="submit" id="inputGroupFileAddon03">Ajouter</button>
 
 
 

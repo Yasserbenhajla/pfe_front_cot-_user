@@ -5,6 +5,7 @@ import { AjouterEtudiantComponent } from './ajouter-etudiant/ajouter-etudiant.co
 import { LoginEtudiantComponent } from './login-etudiant/login-etudiant.component';
 import { LoginEncadrantComponent } from './login-encadrant/login-encadrant.component';
 import { AjouterJournalComponent } from './ajouter-journal/ajouter-journal.component';
+import { AjouterRapportComponent } from './ajouter-rapport/ajouter-rapport.component';
 
 const routes: Routes = [
   { path: '', component: AjouterEncadrantComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'loginEtudiant', component:LoginEtudiantComponent },
   { path: 'loginEncadrant', component:LoginEncadrantComponent },
   { path: 'ajouterJournal', component:AjouterJournalComponent},
+  { path: 'ajouterRapport', component:AjouterRapportComponent}
+
 
 
 

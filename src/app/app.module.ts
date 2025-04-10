@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjouterJournalComponent } from './ajouter-journal/ajouter-journal.component';
+import { AjouterRapportComponent } from './ajouter-rapport/ajouter-rapport.component';
+import { DemandeConventionComponent } from './demande-convention/demande-convention.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AjouterJournalComponent } from './ajouter-journal/ajouter-journal.compo
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    AjouterJournalComponent
+    AjouterJournalComponent,
+    AjouterRapportComponent,
+    DemandeConventionComponent
   ],
   imports: [
     BrowserModule,
