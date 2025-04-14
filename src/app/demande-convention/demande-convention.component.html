@@ -24,7 +24,7 @@
 
 <app-header></app-header>
             <!-- ========== Left Sidebar Start ========== -->
-        <app-menu></app-menu>
+          <app-menu></app-menu>
             <!-- Left Sidebar End -->
 
 
@@ -71,14 +71,14 @@
 
                                                 </div>
                                             </div>
-                                            <form (ngSubmit)="addNewjournal()" [formGroup]="contactForm">
+                                            <form (ngSubmit)="addNewConvention()" [formGroup]="conventionForm">
 
                                             <div class="col-sm-12">
 
 
                                                     <div>
                                                         <div class="input-group mb-6">
-                                                            <input formControlName="journal" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                            <input formControlName="convention" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                                                           </div>
 
 

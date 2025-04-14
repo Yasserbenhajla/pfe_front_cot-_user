@@ -24,7 +24,7 @@
 
 <app-header></app-header>
             <!-- ========== Left Sidebar Start ========== -->
-        <app-menu></app-menu>
+          <app-menu></app-menu>
             <!-- Left Sidebar End -->
 
 
@@ -71,18 +71,31 @@
 
                                                 </div>
                                             </div>
-                                            <form (ngSubmit)="addNewjournal()" [formGroup]="contactForm">
+                                            <form (ngSubmit)="addNewRapport()" [formGroup]="rapportForm">
 
                                             <div class="col-sm-12">
 
 
                                                     <div>
                                                         <div class="input-group mb-6">
-                                                            <input formControlName="journal" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                            <input formControlName="rapport" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                          </div>
+                                                          <div class="input-group mb-6">
+
+                                                          <select formControlName="encadrant" class="form-control">
+                                                            <option
+                                                              *ngFor="let encadrant of listeEncadrant"
+                                                              value="{{ encadrant.id }}"
+                                                            >
+                                                              {{ encadrant.nom }}
+                                                              {{ encadrant.prenom }}
+                                                            </option>
+                                                          </select>
                                                           </div>
 
 
                                                     </div>
+                                                    <span [innerHTML]="this.messageCommande"></span>
                                                     <button class="btn btn-primary" type="submit" id="inputGroupFileAddon03">Ajouter</button>
 
 

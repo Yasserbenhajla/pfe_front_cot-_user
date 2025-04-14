@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AjouterJournalComponent } from './ajouter-journal/ajouter-journal.component';
 import { AjouterRapportComponent } from './ajouter-rapport/ajouter-rapport.component';
 import { DemandeConventionComponent } from './demande-convention/demande-convention.component';
+import { ListeRapportComponent } from './liste-rapport/liste-rapport.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DemandeConventionComponent } from './demande-convention/demande-convent
     FooterComponent,
     AjouterJournalComponent,
     AjouterRapportComponent,
-    DemandeConventionComponent
+    DemandeConventionComponent,
+    ListeRapportComponent
   ],
   imports: [
     BrowserModule,
