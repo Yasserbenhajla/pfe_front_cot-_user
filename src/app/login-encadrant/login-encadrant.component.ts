@@ -61,7 +61,7 @@ export class LoginEncadrantComponent {
           avec success
         </div>`
               let token = res.token;
-              localStorage.setItem("myToken",token);
+              localStorage.setItem("myTokenEncadrant",token);
               this.router.navigate(['/']).then(()=>{window.location.reload()});
             },
             err=>{

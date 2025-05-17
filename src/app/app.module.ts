@@ -16,6 +16,16 @@ import { AjouterJournalComponent } from './ajouter-journal/ajouter-journal.compo
 import { AjouterRapportComponent } from './ajouter-rapport/ajouter-rapport.component';
 import { DemandeConventionComponent } from './demande-convention/demande-convention.component';
 import { ListeRapportComponent } from './liste-rapport/liste-rapport.component';
+import { HomeComponent } from './home/home.component';
+
+import { AffectationComponent } from './affectation/affectation.component';
+import { ListeDemandeStageComponent } from './liste-demande-stage/liste-demande-stage.component';
+import { ConfirmationDemandeStageComponent } from './confirmation-demande-stage/confirmation-demande-stage.component';
+import { AjouterStageComponent } from './ajouter-stage/ajouter-stage.component';
+import { AjouterRapportFinalComponent } from './ajouter-rapport-final/ajouter-rapport-final.component';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { AjouterRapportEncadrantComponent } from './ajouter-rapport-encadrant/ajouter-rapport-encadrant.component';
+import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-rapport-encadrant.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +40,18 @@ import { ListeRapportComponent } from './liste-rapport/liste-rapport.component';
     AjouterJournalComponent,
     AjouterRapportComponent,
     DemandeConventionComponent,
-    ListeRapportComponent
+    ListeRapportComponent,
+    HomeComponent,
+    AffectationComponent,
+    ListeDemandeStageComponent,
+    ConfirmationDemandeStageComponent,
+    AjouterStageComponent,
+    AjouterRapportFinalComponent,
+    RestPasswordComponent,
+    AjouterRapportEncadrantComponent,
+    ListeRapportEncadrantComponent,
+
+
   ],
   imports: [
     BrowserModule,

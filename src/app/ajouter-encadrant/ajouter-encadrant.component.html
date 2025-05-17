@@ -90,11 +90,35 @@
 
                                       <div class="mb-3">
                                         <label for="qualite" class="form-label">Qualité</label>
-                                        <input type="text" class="form-control"  placeholder="Enter qualite" formControlName="qualite">
+                                        <select formControlName="qualite" class="form-control">
+                                          <option
+                                            *ngFor="let qualite of listequalite"
+                                            value="{{ qualite.id }}"
+                                          >
+                                            {{ qualite.nom }}
+
+                                          </option>
+                                        </select>
                                         <div class="invalid-feedback">
 
                                         </div>
                                     </div>
+
+                                    <div class="mb-3">
+                                      <label for="specialite" class="form-label">Specialte</label>
+                                      <select formControlName="specialite" class="form-control">
+                                        <option
+                                          *ngFor="let specialite of listespecialite"
+                                          value="{{ specialite.id }}"
+                                        >
+                                          {{ specialite.nom }}
+
+                                        </option>
+                                      </select>
+                                      <div class="invalid-feedback">
+
+                                      </div>
+                                  </div>
 
                                         <div class="mt-4 d-grid">
                                             <button class="btn btn-primary waves-effect waves-light" type="submit">Register</button>

@@ -9,15 +9,21 @@ import { CrudService } from '../service/crud.service';
 })
 export class HeaderComponent {
   userDetails:any;
+  EncadrantDetails:any;
 
   constructor(private service: CrudService,private router:Router) {
+    /*
    this.userDetails = this.service.userDetails();
+    this.EncadrantDetails = this.service.EncadrantDetails();
+    */
   }
 
 
   ngOnInit(): void {
+    /*
     console.log(this.userDetails);
-
+    console.log(this.EncadrantDetails);
+*/
   }
 
   logout(){
