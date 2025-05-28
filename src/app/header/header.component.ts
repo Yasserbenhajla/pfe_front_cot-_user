@@ -12,19 +12,26 @@ export class HeaderComponent {
   EncadrantDetails:any;
 
   constructor(private service: CrudService,private router:Router) {
-    /*
-   this.userDetails = this.service.userDetails();
-    this.EncadrantDetails = this.service.EncadrantDetails();
-    */
+/*if(this.userDetails==true){
+ this.userDetails = this.service.userDetails();
+}
+else{ this.EncadrantDetails = this.service.EncadrantDetails();}*/
+
+
+
   }
 
-
+/*
   ngOnInit(): void {
-    /*
+if(this.userDetails==true){
     console.log(this.userDetails);
+}else{
     console.log(this.EncadrantDetails);
-*/
+
+}
+
   }
+*/
 
   logout(){
     console.log("logout");
@@ -34,4 +41,5 @@ export class HeaderComponent {
     });
 
   }
+
 }

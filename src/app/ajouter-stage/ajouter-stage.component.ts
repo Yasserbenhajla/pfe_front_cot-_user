@@ -32,7 +32,7 @@ export class AjouterStageComponent {
       dateDeb: new FormControl('', [Validators.required]),
       dateFin: new FormControl('', [Validators.required]),
       typeDeStage: new FormControl('', [Validators.required]),
-      
+
     };
     this.stageForm = this.fb.group(formControls);
   }

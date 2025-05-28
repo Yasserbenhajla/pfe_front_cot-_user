@@ -1,0 +1,83 @@
+/* Menu Component Specific Styles */
+
+/* Enhanced Menu Item Styling */
+.metismenu li a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple Effect on Click */
+.metismenu li a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.metismenu li a:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Menu Icons Enhancement */
+.metismenu li a i {
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Submenu Styling */
+.metismenu .mm-collapse {
+  background: rgba(102, 126, 234, 0.02);
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+/* Active State Enhancement */
+.metismenu .mm-active > a {
+  position: relative;
+  overflow: visible;
+}
+
+.metismenu .mm-active > a::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Hover Animation */
+.metismenu li a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metismenu li a:hover {
+  padding-left: 2rem;
+}
+
+/* Menu Title Styling */
+.menu-title {
+  position: relative;
+}
+
+.menu-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(102, 126, 234, 0.3) 50%, transparent 100%);
+}

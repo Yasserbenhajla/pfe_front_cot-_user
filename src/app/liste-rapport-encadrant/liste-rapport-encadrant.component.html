@@ -34,66 +34,113 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                <div class="page-content">
+                <div class="page-content modern-page">
                     <div class="container-fluid">
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Data Tables</h4>
-
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                            <li class="breadcrumb-item active">Data Tables</li>
-                                        </ol>
+                        <!-- Modern List Container -->
+                        <div class="modern-list-container">
+                            <!-- Stats Container -->
+                            <div class="stats-container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stat-card">
+                                            <div class="stat-icon primary">
+                                                <i class="bx bx-file-blank"></i>
+                                            </div>
+                                            <div class="stat-number">{{ listeRapportEncadrant?.length || 0 }}</div>
+                                            <div class="stat-label">Rapports Encadrant</div>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="modern-list-card">
+                                        <!-- List Header -->
+                                        <div class="list-header">
+                                            <div class="header-icon">
+                                                <i class="bx bx-file-blank"></i>
+                                            </div>
+                                            <h2 class="list-title">Liste des Rapports Encadrant</h2>
+                                            <p class="list-subtitle">Consultez et téléchargez les rapports corrigés par les encadrants</p>
+                                        </div>
+
+                                        <!-- Table Container -->
+                                        <div class="table-container">
+                                            <div *ngIf="listeRapportEncadrant && listeRapportEncadrant.length > 0; else emptyState">
+                                                <table class="modern-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                <i class="bx bx-hash me-2"></i>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                <i class="bx bx-file-pdf me-2"></i>
+                                                                Rapport Corrigé
+                                                            </th>
+                                                            <th>
+                                                                <i class="bx bx-text me-2"></i>
+                                                                Description
+                                                            </th>
+                                                            <th>
+                                                                <i class="bx bx-user me-2"></i>
+                                                                Étudiant
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let rapportEncadrant of listeRapportEncadrant">
+                                                            <td>
+                                                                <span class="fw-bold text-primary">#{{ rapportEncadrant.id }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <img
+                                                                    src="assets/pdf.jpg"
+                                                                    class="pdf-icon"
+                                                                    (click)="downloadPdf(rapportEncadrant.rapportEncadrant)"
+                                                                    title="Télécharger le rapport PDF">
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-truncate d-inline-block" style="max-width: 200px;"
+                                                                      [title]="rapportEncadrant.description">
+                                                                    {{ rapportEncadrant.description }}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="avatar-sm me-2">
+                                                                        <div class="avatar-title rounded-circle bg-primary-subtle text-primary">
+                                                                            {{ getInitials(rapportEncadrant?.etudiant?.nom, rapportEncadrant?.etudiant?.prenom) }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="fw-medium">
+                                                                            {{ rapportEncadrant?.etudiant?.nom }} {{ rapportEncadrant?.etudiant?.prenom }}
+                                                                        </div>
+                                                                        <small class="text-muted">{{ rapportEncadrant?.etudiant?.email }}</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Empty State -->
+                                            <ng-template #emptyState>
+                                                <div class="empty-state">
+                                                    <i class="bx bx-file-blank"></i>
+                                                    <h5>Aucun rapport trouvé</h5>
+                                                    <p>Il n'y a actuellement aucun rapport d'encadrant disponible.</p>
+                                                </div>
+                                            </ng-template>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-
-                                        <h4 class="card-title">Liste Rapport</h4>
-
-
-                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                            <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Version corrigé de rapport</th>
-                                                <th>Description</th>
-                                                <th>Etudiant</th>
-                                                <th>Action</th>
-
-                                            </tr>
-                                            </thead>
-
-
-                                            <tbody>
-                                            <tr *ngFor="let rapportEncadrant of listeRapportEncadrant">
-                                                <td>{{rapportEncadrant.id}}</td>
-                                                <td><img src="assets/pdf.jpg" style="width:30px; cursor: pointer;" (click)="downloadPdf(rapportEncadrant.rapportEncadrant)"></td>
-                                                <td>{{rapportEncadrant.description}}</td>
-                                                <td>{{rapportEncadrant?.etudiant?.nom}} {{rapportEncadrant?.etudiant?.prenom}}</td>
-                                                <td><a href="modifierRapport/{{rapportEncadrant.id}}" type="submit" class="btn btn-success">Modfier</a>
-
-                                            </tr>
-
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
 
 
                     </div> <!-- container-fluid -->

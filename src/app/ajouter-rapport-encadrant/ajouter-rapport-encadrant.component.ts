@@ -32,6 +32,7 @@ export class AjouterRapportEncadrantComponent {
   ) {
     let formControls = {
       rapportEncadrant: new FormControl('', [Validators.required, Validators.minLength(4)]),
+       description: new FormControl('', [Validators.required]),
       etudiant: new FormControl('', [Validators.required]),
 
 
@@ -43,6 +44,10 @@ export class AjouterRapportEncadrantComponent {
 
   get rapportEncadrant() {
     return this.rapportEncadrantForm.get('rapportEncadrant');
+  }
+
+  get description() {
+    return this.rapportEncadrantForm.get('description');
   }
   get etudiant() {
     return this.rapportEncadrantForm.get('etudiant');

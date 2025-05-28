@@ -69,7 +69,7 @@ export class AjouterRapportComponent {
         (res) => {
           console.log(res);
 
-          this.router.navigate(['/listeRapport']);
+          this.router.navigate(['/home']);
         },
         (err) => {}
       );

@@ -34,63 +34,88 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                <div class="page-content">
+                <div class="page-content modern-page">
                     <div class="container-fluid">
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Data Tables</h4>
-
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                            <li class="breadcrumb-item active">Data Tables</li>
-                                        </ol>
+                        <!-- Modern List Container -->
+                        <div class="modern-list-container">
+                            <!-- Stats Container -->
+                            <div class="stats-container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stat-card">
+                                            <div class="stat-icon primary">
+                                                <i class="bx bx-file-plus"></i>
+                                            </div>
+                                            <div class="stat-number">{{ listeDemandes?.length || 0 }}</div>
+                                            <div class="stat-label">Demandes de Stage</div>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="modern-list-card">
+                                        <!-- List Header -->
+                                        <div class="list-header">
+                                            <div class="header-icon">
+                                                <i class="bx bx-file-plus"></i>
+                                            </div>
+                                            <h2 class="list-title">Liste des Demandes de Stage</h2>
+                                            <p class="list-subtitle">Consultez et téléchargez les demandes de stage soumises</p>
+                                        </div>
+
+                                        <!-- Table Container -->
+                                        <div class="table-container">
+                                            <div *ngIf="listeDemandes && listeDemandes.length > 0; else emptyState">
+                                                <table class="modern-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                <i class="bx bx-hash me-2"></i>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                <i class="bx bx-file-pdf me-2"></i>
+                                                                Document de Demande
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let demande of listeDemandes; trackBy: trackByFn">
+                                                            <td>
+                                                                <span class="fw-bold text-primary">#{{ demande.id }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="document-card" (click)="downloadPdf(demande.demandeStage)">
+                                                                    <div class="document-icon">
+                                                                        <i class="bx bx-file-pdf"></i>
+                                                                    </div>
+                                                                    <div class="document-info">
+                                                                        <h6>Demande de Stage</h6>
+                                                                        <small>Cliquez pour télécharger le PDF</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Empty State -->
+                                            <ng-template #emptyState>
+                                                <div class="empty-state">
+                                                    <i class="bx bx-file-plus"></i>
+                                                    <h5>Aucune demande trouvée</h5>
+                                                    <p>Il n'y a actuellement aucune demande de stage disponible.</p>
+                                                </div>
+                                            </ng-template>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-
-                                        <h4 class="card-title">Liste De Demande</h4>
-
-
-                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                            <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Demande De Stage</th>
-
-
-                                            </tr>
-                                            </thead>
-
-
-                                            <tbody>
-                                            <tr *ngFor="let demande of listeDemandes">
-                                                <td>{{demande.id}}</td>
-                                                <td><img src="assets/pdf.jpg" style="width:30px; cursor: pointer;" (click)="downloadPdf(demande.demandeStage)"></td>
-
-
-
-                                            </tr>
-
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
 
 
                     </div> <!-- container-fluid -->

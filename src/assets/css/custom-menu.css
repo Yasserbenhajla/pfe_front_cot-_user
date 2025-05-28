@@ -1,0 +1,231 @@
+/* Custom Menu Styles - Harmonized with Ajouter Rapport Colors */
+
+/* ========== SIDEBAR MENU CUSTOMIZATION ========== */
+
+/* Main Sidebar Background */
+.vertical-menu {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border-right: 1px solid rgba(102, 126, 234, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.08) !important;
+}
+
+/* Menu Items */
+#sidebar-menu ul li a {
+    color: #495057 !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    margin: 2px 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+#sidebar-menu ul li a:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%) !important;
+    color: #667eea !important;
+    transform: translateX(4px) !important;
+}
+
+#sidebar-menu ul li a i {
+    color: #6c757d !important;
+    transition: all 0.3s ease !important;
+}
+
+#sidebar-menu ul li a:hover i {
+    color: #667eea !important;
+}
+
+/* Active Menu Item */
+.mm-active > a {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+.mm-active > a i {
+    color: white !important;
+}
+
+/* Menu Titles */
+.menu-title {
+    color: #667eea !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin: 1rem 0 0.5rem 0 !important;
+}
+
+/* ========== HEADER CUSTOMIZATION ========== */
+
+/* Header Background */
+#page-topbar {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1) !important;
+    box-shadow: 0 2px 15px rgba(102, 126, 234, 0.08) !important;
+}
+
+/* Logo Area */
+.navbar-brand-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 0 0 16px 0 !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Header Menu Button */
+#vertical-menu-btn {
+    color: #667eea !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+#vertical-menu-btn:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+}
+
+/* ========== SUBMENU STYLES ========== */
+
+/* Submenu Background */
+#sidebar-menu ul li ul.sub-menu {
+    background: rgba(102, 126, 234, 0.02) !important;
+    border-radius: 8px !important;
+    margin: 4px 8px !important;
+    padding: 8px 0 !important;
+}
+
+#sidebar-menu ul li ul.sub-menu li a {
+    color: #6c757d !important;
+    padding-left: 3rem !important;
+    font-size: 12px !important;
+}
+
+#sidebar-menu ul li ul.sub-menu li a:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #667eea !important;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+@media (max-width: 992px) {
+    .vertical-menu {
+        background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%) !important;
+    }
+    
+    body.sidebar-enable .vertical-menu {
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.15) !important;
+    }
+}
+
+/* ========== COLLAPSED SIDEBAR ========== */
+
+.vertical-collpsed .vertical-menu #sidebar-menu > ul > li > a {
+    text-align: center !important;
+    padding: 1rem 0.5rem !important;
+}
+
+.vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border-radius: 8px !important;
+}
+
+/* ========== ADDITIONAL ENHANCEMENTS ========== */
+
+/* Smooth Scrollbar */
+.vertical-menu [data-simplebar] {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(102, 126, 234, 0.3) transparent !important;
+}
+
+.vertical-menu [data-simplebar]::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.vertical-menu [data-simplebar]::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.vertical-menu [data-simplebar]::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.3) !important;
+    border-radius: 3px !important;
+}
+
+.vertical-menu [data-simplebar]::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.5) !important;
+}
+
+/* Menu Item Badges */
+.badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    font-size: 10px !important;
+    border-radius: 12px !important;
+}
+
+/* Arrow Icons */
+.has-arrow:after {
+    color: #6c757d !important;
+    transition: all 0.3s ease !important;
+}
+
+.mm-active > .has-arrow:after {
+    color: white !important;
+}
+
+/* ========== DARK MODE COMPATIBILITY ========== */
+
+body[data-sidebar=dark] .vertical-menu {
+    background: linear-gradient(180deg, #2a3042 0%, #1e2139 100%) !important;
+}
+
+body[data-sidebar=dark] #sidebar-menu ul li a {
+    color: #a6b0cf !important;
+}
+
+body[data-sidebar=dark] #sidebar-menu ul li a:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%) !important;
+    color: #667eea !important;
+}
+
+body[data-sidebar=dark] .mm-active > a {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+/* ========== ANIMATION EFFECTS ========== */
+
+#sidebar-menu ul li {
+    animation: slideInLeft 0.3s ease-out !important;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Menu Item Hover Effect */
+#sidebar-menu ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 3px 3px 0;
+    transition: height 0.3s ease;
+}
+
+#sidebar-menu ul li a:hover::before,
+.mm-active > a::before {
+    height: 20px;
+}

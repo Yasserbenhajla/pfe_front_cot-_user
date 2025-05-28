@@ -1,0 +1,54 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ensure footer text is properly styled */
+.footer .container-fluid {
+  max-width: 100%;
+}
+
+.footer .row {
+  margin: 0;
+}
+
+.footer .col-sm-6 {
+  padding: 0 15px;
+}
+
+/* Add some bottom margin to body to prevent content from being hidden behind fixed footer */
+body {
+  margin-bottom: 80px;
+}
+
+/* Alternative: Sticky footer approach (comment out the fixed approach above and uncomment this if preferred) */
+/*
+.footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 15px 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+*/

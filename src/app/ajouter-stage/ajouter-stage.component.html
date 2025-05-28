@@ -35,184 +35,171 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                <div class="page-content">
+                <div class="page-content modern-page">
                     <div class="container-fluid">
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Form Elements</h4>
+                        <!-- Modern Form Container -->
+                        <div class="modern-form-container">
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-12 mx-auto">
+                                    <div class="modern-form-card">
+                                        <!-- Form Header -->
+                                        <div class="form-header">
+                                            <div class="header-icon">
+                                                <i class="bx bx-briefcase-alt-2"></i>
+                                            </div>
+                                            <h2 class="form-title">Ajouter un Stage</h2>
+                                            <p class="form-subtitle">Créez une nouvelle offre de stage avec toutes les informations nécessaires</p>
+                                        </div>
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                            <li class="breadcrumb-item active">Form Elements</li>
-                                        </ol>
+                                        <!-- Form Content -->
+                                        <div class="form-content">
+                                            <!-- Alert Container -->
+                                            <div class="alert-container" [innerHTML]="messageCommande"></div>
+
+                                            <form [formGroup]="stageForm" (ngSubmit)="addNewStage()" class="modern-form">
+
+                                                <!-- Section: Informations Générales -->
+                                                <div class="section-label">
+                                                    <i class="bx bx-info-circle"></i>
+                                                    <span>Informations Générales</span>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="intitule" class="form-label">Intitulé du Stage</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="intitule"
+                                                            placeholder="Entrez l'intitulé du stage"
+                                                            formControlName="intitule">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="nomEntreprise" class="form-label">Nom de l'Entreprise</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="nomEntreprise"
+                                                            placeholder="Entrez le nom de l'entreprise"
+                                                            formControlName="nomEntreprise">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="description" class="form-label">Description</label>
+                                                    <input
+                                                        class="form-control"
+                                                        type="text"
+                                                        id="description"
+                                                        placeholder="Décrivez les missions et objectifs du stage"
+                                                        formControlName="description">
+                                                </div>
+
+                                                <!-- Section: Localisation -->
+                                                <div class="section-label">
+                                                    <i class="bx bx-map"></i>
+                                                    <span>Localisation</span>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="lieu" class="form-label">Lieu du Stage</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="lieu"
+                                                            placeholder="Ville ou adresse du stage"
+                                                            formControlName="lieu">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="pays" class="form-label">Pays</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="pays"
+                                                            placeholder="Pays du stage"
+                                                            formControlName="pays">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Section: Détails Techniques -->
+                                                <div class="section-label">
+                                                    <i class="bx bx-code-alt"></i>
+                                                    <span>Détails Techniques</span>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="technologieOutil" class="form-label">Technologies et Outils</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="technologieOutil"
+                                                            placeholder="Technologies, langages, outils utilisés"
+                                                            formControlName="technologieOutil">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="typeDeStage" class="form-label">Type de Stage</label>
+                                                        <select formControlName="typeDeStage" class="form-select" id="typeDeStage">
+                                                            <option value="">Sélectionnez un type de stage</option>
+                                                            <option
+                                                                *ngFor="let typeStage of listeTypeStage"
+                                                                [value]="typeStage.id">
+                                                                {{ typeStage.nom }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Section: Période -->
+                                                <div class="section-label">
+                                                    <i class="bx bx-calendar"></i>
+                                                    <span>Période du Stage</span>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="dateDeb" class="form-label">Date de Début</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="date"
+                                                            id="dateDeb"
+                                                            formControlName="dateDeb">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="dateFin" class="form-label">Date de Fin</label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="date"
+                                                            id="dateFin"
+                                                            formControlName="dateFin">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Form Actions -->
+                                                <div class="form-actions">
+                                                    <button type="button" class="btn-secondary" routerLink="/listeStage">
+                                                        <i class="bx bx-x"></i>
+                                                        Annuler
+                                                    </button>
+                                                    <button type="submit" class="btn-primary">
+                                                        <i class="bx bx-check"></i>
+                                                        Ajouter le Stage
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-
-                                      <form  [formGroup]="stageForm" (ngSubmit)="addNewStage()">
-                                        <h4 class="card-title">Ajouter Stage </h4>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-text-input" class="col-md-2 col-form-label">Intitule</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer intitule"
-                                              id="example-text-input" formControlName="intitule">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-search-input" class="col-md-2 col-form-label">Description</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer Description"
-                                              id="example-description-input" formControlName="description">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-email-input" class="col-md-2 col-form-label">Lieu</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer lieu de stage"
-                                              id="example-lieu-input" formControlName="lieu">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-email-input" class="col-md-2 col-form-label">Pays</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer pays de stage"
-                                              id="example-pays-input" formControlName="pays">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-email-input" class="col-md-2 col-form-label">Technologie Et Outil</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer Technologie et Outil"
-                                              id="example-tech-input" formControlName="technologieOutil">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-email-input" class="col-md-2 col-form-label">Nom De l'Entreprise</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="text" placeholder="entrer nom entreprise"
-                                              id="example-tech-input" formControlName="nomEntreprise">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-date-input" class="col-md-2 col-form-label">Date Debut</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="date" formControlName="dateDeb">
-                                          </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                          <label for="example-date-input" class="col-md-2 col-form-label">Date Fin</label>
-                                          <div class="col-md-10">
-                                            <input class="form-control" type="date" formControlName="dateFin">
-                                          </div>
-                                        </div>
 
 
-
-
-                                        <div class="mb-3 row">
-                                          <label for="example-email-input" class="col-md-2 col-form-label">Type De Stage</label>
-                                          <div class="col-md-10">
-                                          <select formControlName="typeDeStage" class="form-control">
-                                            <option
-                                              *ngFor="let typeStage of listeTypeStage"
-                                              value="{{typeStage.id }}"
-                                            >
-                                              {{ typeStage.nom }}
-
-                                            </option>
-                                          </select>
-                                          </div>
-                                        </div>
-
-
-
-                                        <button  class="btn btn-primary" type="submit">Ajouter</button>
-                                      </form>
-
-
-
-
-
-
-
-
-                                    </div>
-                                </div>
-
-                            </div>
-                          <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-
-                            </div>
-
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-
-                            <div class="col-lg-12">
-
-
-                            </div>
-                        </div>
-                        <!-- end row -->
 
                     </div> <!-- container-fluid -->
                 </div>

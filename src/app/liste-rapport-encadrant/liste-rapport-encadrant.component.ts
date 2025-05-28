@@ -66,6 +66,19 @@ listeRapportEncadrant:RapportEncadrant[]= [];;
        link.download =`${fileName}.pdf`
         link.click();
       }
+
+      // Utility method to get initials from names
+      getInitials(nom: string, prenom: string): string {
+        if (!nom && !prenom) return '??';
+        const nomInitial = nom ? nom.charAt(0).toUpperCase() : '';
+        const prenomInitial = prenom ? prenom.charAt(0).toUpperCase() : '';
+        return nomInitial + prenomInitial;
+      }
+
+      // Track by function for better performance
+      trackByFn(index: number, item: any): any {
+        return item.id || index;
+      }
   }
 
 

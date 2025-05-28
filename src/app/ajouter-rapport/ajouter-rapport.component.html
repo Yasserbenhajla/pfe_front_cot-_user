@@ -34,7 +34,7 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                <div class="page-content">
+                <div class="page-content modern-page">
                     <div class="container-fluid">
 
                         <!-- start page title -->
@@ -54,56 +54,90 @@
 
                         <div class="row">
 
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">File browser</h4>
+                            <div class="col-xl-8 col-lg-10 mx-auto">
+                                <div class="modern-form-card">
+                                    <!-- Form Header -->
+                                    <div class="form-header">
+                                        <div class="header-icon">
+                                            <i class="bx bx-file-plus"></i>
+                                        </div>
+                                        <h2 class="form-title">Ajouter un Rapport</h2>
+                                        <p class="form-subtitle">Ajouter votre rapport de stage et sélectionnez votre encadrant</p>
+                                    </div>
+
+                                    <!-- Form Content -->
+                                    <div class="form-content">
 
 
 
 
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="mt-4">
+                                        <form (ngSubmit)="addNewRapport()" [formGroup]="rapportForm" class="modern-form">
 
+                                            <!-- File Upload Section -->
+                                            <div class="upload-section">
+                                                <label class="section-label">
+                                                    <i class="bx bx-cloud-upload"></i>
+                                                    Rapport de Stage
+                                                </label>
 
-
+                                                <div class="file-upload-area">
+                                                    <div class="upload-content">
+                                                        <div class="upload-icon">
+                                                            <i class="bx bx-cloud-upload"></i>
+                                                        </div>
+                                                        <h4>Glissez-déposez votre fichier ici</h4>
+                                                        <p>ou cliquez pour sélectionner</p>
+                                                        <div class="file-types">
+                                                            <span class="file-type">PDF</span>
+                                                            <span class="file-type">DOC</span>
+                                                            <span class="file-type">DOCX</span>
+                                                        </div>
+                                                    </div>
+                                                    <input
+                                                        formControlName="rapport"
+                                                        (change)="OnSelectFile($event)"
+                                                        type="file"
+                                                        class="file-input"
+                                                        id="fileInput"
+                                                        accept=".pdf,.doc,.docx"
+                                                    />
                                                 </div>
                                             </div>
-                                            <form (ngSubmit)="addNewRapport()" [formGroup]="rapportForm">
 
-                                            <div class="col-sm-12">
-
-
-                                                    <div>
-                                                        <div class="input-group mb-6">
-                                                            <input formControlName="rapport" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
-                                                          </div>
-                                                          <div class="input-group mb-6">
-
-                                                          <select formControlName="encadrant" class="form-control">
-                                                            <option
-                                                              *ngFor="let encadrant of listeEncadrant"
-                                                              value="{{ encadrant.id }}"
-                                                            >
-                                                              {{ encadrant.nom }}
-                                                              {{ encadrant.prenom }}
-                                                            </option>
-                                                          </select>
-                                                          </div>
-
-
-                                                    </div>
-                                                    <span [innerHTML]="this.messageCommande"></span>
-                                                    <button class="btn btn-primary" type="submit" id="inputGroupFileAddon03">Ajouter</button>
-
-
-
+                                            <!-- Encadrant Selection -->
+                                            <div class="form-group">
+                                                <label class="section-label">
+                                                    <i class="bx bx-user-check"></i>
+                                                    Encadrant Académique
+                                                </label>
+                                                <div class="select-wrapper">
+                                                    <select
+                                                        id="encadrantSelect"
+                                                        formControlName="encadrant"
+                                                        class="modern-select"
+                                                    >
+                                                        <option value="" disabled selected>Sélectionnez un encadrant</option>
+                                                        <option *ngFor="let encadrant of listeEncadrant" [value]="encadrant.id">
+                                                            {{ encadrant.nom }} {{ encadrant.prenom }}
+                                                        </option>
+                                                    </select>
+                                                    <i class="bx bx-chevron-down select-arrow"></i>
+                                                </div>
                                             </div>
-                                          </form>
-                                        </div>
 
+                                            <!-- Action Buttons -->
+                                            <div class="form-actions">
+                                                <button type="button" class="btn-secondary">
+                                                    <i class="bx bx-x"></i>
+                                                    Annuler
+                                                </button>
+                                                <button type="submit" class="btn-primary" [disabled]="!rapportForm.valid">
+                                                    <i class="bx bx-check"></i>
+                                                    Ajouter le Rapport
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -123,60 +157,7 @@
         <!-- END layout-wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center px-3 py-4">
 
-                    <h5 class="m-0 me-2">Settings</h5>
-
-                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="mt-0" />
-                <h6 class="text-center mb-0">Choose Layouts</h6>
-
-                <div class="p-4">
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
-                    </div>
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
-                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-                    </div>
-
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
-                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-                    </div>
-
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
-                        <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-                    </div>
-
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
-                    </div>
-                    <div class="form-check form-switch mb-5">
-                        <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
-                        <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
-                    </div>
-
-
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -189,3 +170,4 @@
 
 <!-- Mirrored from themesbrand.com/skote/layouts/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:05:06 GMT -->
 </html>
+

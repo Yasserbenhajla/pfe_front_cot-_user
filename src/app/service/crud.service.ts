@@ -18,6 +18,11 @@ import { ConfirmationDemande } from '../Entities/ConfirmationDemande';
 import { Stage } from '../Entities/Stage';
 import { SaveRapportFinal } from '../Entities/SaveRapportFinal';
 import { RapportEncadrant } from '../Entities/RapportEncadrant';
+import { Contact } from '../Entities/Contact';
+import { SaveSujet } from '../Entities/SaveSujet';
+import { Sujet } from '../Entities/Sujet';
+import { Department } from '../Entities/Department';
+import { Journal } from '../Entities/Journal';
 
 
 
@@ -128,34 +133,64 @@ export class CrudService {
       return this.http.get<TypeStage[]>(this.apiUrl + "/type_stage");
     }
 
-   addRapportFinal(saveRapportFinal:SaveRapportFinal) {
-  return this.http.post<any>(this.apiUrl + '/rapportFinal', saveRapportFinal);
+    addRapportFinal(saveRapportFinal:SaveRapportFinal) {
+    return this.http.post<any>(this.apiUrl + '/rapportFinal', saveRapportFinal);
 }
 
-forgotPassword(email: string): Observable<any> {
-  return this.http.post(
+    forgotPassword(email: string): Observable<any> {
+    return this.http.post(
     `${this.apiUrl}/Etudiant/forgot-password?email=${email}`,
     {},
     { responseType: 'text' }
   );
 }
 
-resetPassword(token: string, newPassword: string): Observable<string> {
-  const url = `${this.apiUrl}/Etudiant/reset-password?token=${token}&newPassword=${newPassword}`;
-  return this.http.post(url, {}, { responseType: 'text' });
+    resetPassword(token: string, newPassword: string): Observable<string> {
+    const url = `${this.apiUrl}/Etudiant/reset-password?token=${token}&newPassword=${newPassword}`;
+    return this.http.post(url, {}, { responseType: 'text' });
 }
 
-  getAllRapportByEncadrant(): Observable<Rapport[]> {
+    getAllRapportByEncadrant(): Observable<Rapport[]> {
       return this.http.get<Rapport[]>(this.apiUrl + "/rapport/get-all-by-id-Encadrant/"+this.EncadrantDetails()?.id);
     }
 
- addRapportEncadrant(saveRapportEncadrant:SaveRapportEncadrant) {
-  return this.http.post<any>(this.apiUrl + '/rapportEncadrant', saveRapportEncadrant);
+    addRapportEncadrant(saveRapportEncadrant:SaveRapportEncadrant) {
+    return this.http.post<any>(this.apiUrl + '/rapportEncadrant', saveRapportEncadrant);
 }
 
-getAllRapportByEtudiant(): Observable<RapportEncadrant[]> {
+    getAllRapportByEtudiant(): Observable<RapportEncadrant[]> {
       return this.http.get<RapportEncadrant[]>(this.apiUrl + "/rapportEncadrant/get-all-by-id-Etudiant/"+this.userDetails()?.id);
     }
+
+    addContact(contact: Contact) {
+      return this.http.post<any>(this.apiUrl + "/contact", contact);
+    }
+
+       addSujet(saveSujet:SaveSujet) {
+      return this.http.post<any>(this.apiUrl + '/sujet', saveSujet);
+}
+      getAllSujetByEtudiant(): Observable<Sujet[]> {
+      return this.http.get<Sujet[]>(this.apiUrl + "/sujet/get-all-by-id-Etudiant/"+this.userDetails()?.id);
+    }
+
+     getStage(): Observable<Stage[]> {
+      return this.http.get<Stage[]>(this.apiUrl + "/stage");
+    }
+
+     getDepartment(): Observable<Department[]> {
+      return this.http.get<Specialite[]>(this.apiUrl + "/department");
+    }
+
+     getSujets(): Observable<Sujet[]> {
+      return this.http.get<Sujet[]>(this.apiUrl + "/sujet");
+    }
+
+      getJournal(): Observable<Journal[]> {
+      return this.http.get<Journal[]>(this.apiUrl + "/journal");
+    }
+
+
+
 
 
 }

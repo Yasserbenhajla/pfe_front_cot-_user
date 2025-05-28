@@ -17,6 +17,10 @@ import { AjouterRapportFinalComponent } from './ajouter-rapport-final/ajouter-ra
 import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { AjouterRapportEncadrantComponent } from './ajouter-rapport-encadrant/ajouter-rapport-encadrant.component';
 import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-rapport-encadrant.component';
+import { Contact } from './Entities/Contact';
+import { ContactComponent } from './contact/contact.component';
+import { ListeSujetComponent } from './liste-sujet/liste-sujet.component';
+import { AjouterSujetComponent } from './ajouter-sujet/ajouter-sujet.component';
 
 const routes: Routes = [
   { path: '', component: AjouterEncadrantComponent },
@@ -29,13 +33,18 @@ const routes: Routes = [
   { path: 'listeRapport', component:ListeRapportComponent},
   { path: 'home', component:HomeComponent},
   {path: 'ListeAffectation',component:AffectationComponent},
-  {path: 'ListeDemande',component:ListeDemandeStageComponent},
+  {path: 'ListeDemandeStage',component:ListeDemandeStageComponent},
   {path: 'ConfirmtionDemande',component:ConfirmationDemandeStageComponent},
   {path: 'AjouterStage',component:AjouterStageComponent},
   {path: 'AjouterRapportFinal',component:AjouterRapportFinalComponent},
   {path: 'RestPassword',component:RestPasswordComponent},
-  {path: 'AjouterRapportEncadrant',component:AjouterRapportEncadrantComponent},
+  {path: 'ajouterRapportEncadrant',component:AjouterRapportEncadrantComponent},
   {path: 'listeRapportEncadrant',component:ListeRapportEncadrantComponent},
+  {path: 'Contact',component:ContactComponent},
+  {path: 'listesujet',component:ListeSujetComponent},
+  {path: 'AjouterSujet',component:AjouterSujetComponent},
+
+
 
 
 

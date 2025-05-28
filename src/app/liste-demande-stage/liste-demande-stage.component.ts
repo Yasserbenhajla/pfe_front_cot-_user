@@ -60,5 +60,10 @@ export class ListeDemandeStageComponent {
     link.download = `${fileName}.pdf`;
     link.click();
   }
+
+  // Track by function for better performance
+  trackByFn(index: number, item: any): any {
+    return item.id || index;
+  }
 }
 

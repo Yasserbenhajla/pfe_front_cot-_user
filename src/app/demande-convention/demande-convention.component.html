@@ -1,31 +1,21 @@
 <!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from themesbrand.com/skote/layouts/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:05:05 GMT -->
 <head>
+    <meta charset="utf-8" />
+    <title>Demande de Convention | Gestion des Stages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Système de gestion des stages" name="description" />
+    <meta content="Polytech" name="author" />
+</head>
 
-        <meta charset="utf-8" />
-        <title>Form Elements | Skote - Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
-
-
-    </head>
-
-    <body data-sidebar="dark">
-
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
-        <!-- Begin page -->
-        <div id="layout-wrapper">
-
-
-<app-header></app-header>
-            <!-- ========== Left Sidebar Start ========== -->
-          <app-menu></app-menu>
-            <!-- Left Sidebar End -->
+<body data-sidebar="dark">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <app-header></app-header>
+        <!-- ========== Left Sidebar Start ========== -->
+        <app-menu></app-menu>
+        <!-- Left Sidebar End -->
 
 
 
@@ -33,71 +23,75 @@
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
-
-                <div class="page-content">
+                <div class="page-content modern-page">
                     <div class="container-fluid">
-
-                        <!-- start page title -->
-
-                        <!-- end page title -->
-
-                        <!-- end row -->
-
-
-                        <!-- end row -->
-
-
-                        <!-- end row -->
-
-
-
-
-                        <div class="row">
-
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">File browser</h4>
-
-
-
-
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="mt-4">
-
-
-
-                                                </div>
+                        <div class="modern-form-container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10">
+                                    <div class="modern-form-card">
+                                        <!-- Form Header -->
+                                        <div class="form-header">
+                                            <div class="header-icon">
+                                                <i class="bx bx-file-plus"></i>
                                             </div>
-                                            <form (ngSubmit)="addNewConvention()" [formGroup]="conventionForm">
-
-                                            <div class="col-sm-12">
-
-
-                                                    <div>
-                                                        <div class="input-group mb-6">
-                                                            <input formControlName="convention" (change)="OnSelectFile($event)"  type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
-                                                          </div>
-
-
-                                                    </div>
-                                                    <button class="btn btn-primary" type="submit" id="inputGroupFileAddon03">Ajouter</button>
-
-
-
-                                            </div>
-                                          </form>
+                                            <h2 class="form-title">Demande de Convention</h2>
+                                            <p class="form-subtitle">Téléchargez votre demande de convention de stage</p>
                                         </div>
 
+                                        <!-- Form Content -->
+                                        <div class="form-content">
+                                            <form (ngSubmit)="addNewConvention()" [formGroup]="conventionForm" class="modern-form">
+                                                <!-- Convention Upload Section -->
+                                                <div class="upload-section">
+                                                    <label class="section-label">
+                                                        <i class="bx bx-file-blank"></i>
+                                                        Convention de Stage
+                                                    </label>
+
+                                                    <div class="file-upload-area" onclick="document.getElementById('conventionFile').click()">
+                                                        <div class="upload-content">
+                                                            <div class="upload-icon">
+                                                                <i class="bx bx-cloud-upload"></i>
+                                                            </div>
+                                                            <h4>Glissez-déposez votre convention ici</h4>
+                                                            <p>ou cliquez pour sélectionner un fichier</p>
+                                                            <div class="file-types">
+                                                                <span class="file-type">PDF</span>
+                                                                <span class="file-type">DOC</span>
+                                                                <span class="file-type">DOCX</span>
+                                                            </div>
+                                                        </div>
+                                                        <input
+                                                            id="conventionFile"
+                                                            formControlName="convention"
+                                                            (change)="OnSelectFile($event)"
+                                                            type="file"
+                                                            class="file-input"
+                                                            accept=".pdf,.doc,.docx"
+                                                            aria-label="Télécharger la convention">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Message d'erreur/succès -->
+                                                <div *ngIf="messageCommande" [innerHTML]="messageCommande" class="alert-container"></div>
+
+                                                <!-- Action Buttons -->
+                                                <div class="form-actions">
+                                                    <button type="button" class="btn-secondary" onclick="history.back()">
+                                                        <i class="bx bx-arrow-back"></i>
+                                                        Annuler
+                                                    </button>
+                                                    <button type="submit" class="btn-primary" [disabled]="!conventionForm.valid">
+                                                        <i class="bx bx-check"></i>
+                                                        Soumettre la Demande
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                        <!-- end row -->
-
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->

@@ -1,0 +1,191 @@
+  <!doctype html>
+  <html lang="en">
+
+
+  <!-- Mirrored from themesbrand.com/skote/layouts/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:05:05 GMT -->
+  <head>
+
+          <meta charset="utf-8" />
+          <title>Form Elements | Skote - Admin & Dashboard Template</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+          <meta content="Themesbrand" name="author" />
+
+
+      </head>
+
+      <body data-sidebar="dark">
+
+      <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+          <!-- Begin page -->
+          <div id="layout-wrapper">
+
+
+            <app-header></app-header>
+
+              <!-- ========== Left Sidebar Start ========== -->
+              <app-menu></app-menu>>
+              <!-- Left Sidebar End -->
+
+
+
+              <!-- ============================================================== -->
+              <!-- Start right Content here -->
+              <!-- ============================================================== -->
+              <div class="main-content">
+
+                  <div class="page-content modern-page">
+                      <div class="container-fluid">
+
+                          <!-- Modern Form Container -->
+                          <div class="modern-form-container">
+                              <div class="row">
+                                  <div class="col-xl-8 col-lg-10 mx-auto">
+                                      <div class="modern-form-card">
+                                          <!-- Form Header -->
+                                          <div class="form-header">
+                                              <div class="header-icon">
+                                                  <i class="bx bx-edit-alt"></i>
+                                              </div>
+                                              <h2 class="form-title">Ajouter un Sujet</h2>
+                                              <p class="form-subtitle">Proposez un nouveau sujet de stage pour une entreprise</p>
+                                          </div>
+
+                                          <!-- Form Content -->
+                                          <div class="form-content">
+                                              <!-- Alert Container -->
+                                              <div class="alert-container" [innerHTML]="messageCommande"></div>
+
+                                              <form [formGroup]="sujetForm" (ngSubmit)="addNewSujet()" class="modern-form">
+
+                                                  <!-- Section: Informations du Sujet -->
+                                                  <div class="section-label">
+                                                      <i class="bx bx-bulb"></i>
+                                                      <span>Informations du Sujet</span>
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                      <label for="description" class="form-label">Description du Sujet</label>
+                                                      <input
+                                                          class="form-control"
+                                                          type="text"
+                                                          id="description"
+                                                          placeholder="Décrivez le sujet de stage proposé"
+                                                          formControlName="description">
+                                                  </div>
+
+                                                  <!-- Section: Entreprise -->
+                                                  <div class="section-label">
+                                                      <i class="bx bx-buildings"></i>
+                                                      <span>Entreprise</span>
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                      <label for="stage" class="form-label">Nom de l'Entreprise</label>
+                                                      <select formControlName="stage" class="form-select" id="stage">
+                                                          <option value="">Sélectionnez une entreprise</option>
+                                                          <option
+                                                              *ngFor="let stage of listeStage"
+                                                              [value]="stage.id">
+                                                              {{ stage.nomEntreprise }}
+                                                          </option>
+                                                      </select>
+                                                  </div>
+
+                                                  <!-- Form Actions -->
+                                                  <div class="form-actions">
+                                                      <button type="button" class="btn-secondary" routerLink="/listeSujet">
+                                                          <i class="bx bx-x"></i>
+                                                          Annuler
+                                                      </button>
+                                                      <button type="submit" class="btn-primary">
+                                                          <i class="bx bx-check"></i>
+                                                          Ajouter le Sujet
+                                                      </button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div> <!-- container-fluid -->
+                  </div>
+                  <!-- End Page-content -->
+
+
+              <app-footer></app-footer>
+              </div>
+              <!-- end main content-->
+
+          </div>
+          <!-- END layout-wrapper -->
+
+          <!-- Right Sidebar -->
+          <div class="right-bar">
+              <div data-simplebar class="h-100">
+                  <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+                      <h5 class="m-0 me-2">Settings</h5>
+
+                      <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                          <i class="mdi mdi-close noti-icon"></i>
+                      </a>
+                  </div>
+
+                  <!-- Settings -->
+                  <hr class="mt-0" />
+                  <h6 class="text-center mb-0">Choose Layouts</h6>
+
+                  <div class="p-4">
+                      <div class="mb-2">
+                          <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
+                      </div>
+
+                      <div class="form-check form-switch mb-3">
+                          <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                          <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                      </div>
+
+                      <div class="mb-2">
+                          <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
+                      </div>
+                      <div class="form-check form-switch mb-3">
+                          <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
+                          <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                      </div>
+
+                      <div class="mb-2">
+                          <img src="assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
+                      </div>
+                      <div class="form-check form-switch mb-3">
+                          <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
+                          <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+                      </div>
+
+                      <div class="mb-2">
+                          <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
+                      </div>
+                      <div class="form-check form-switch mb-5">
+                          <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
+                          <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
+                      </div>
+
+
+                  </div>
+
+              </div> <!-- end slimscroll-menu-->
+          </div>
+          <!-- /Right-bar -->
+
+          <!-- Right bar overlay-->
+          <div class="rightbar-overlay"></div>
+
+
+      </body>
+
+
+  <!-- Mirrored from themesbrand.com/skote/layouts/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:05:06 GMT -->
+  </html>

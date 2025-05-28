@@ -1,0 +1,26 @@
+<p>chat-bot works!</p>
+<!-- floating launcher button -->
+<button class="bot-launcher" (click)="open()"></button>
+
+<!-- slide-in panel -->
+<div class="bot-panel" [class.open]="opened">
+  <div class="bot-header">
+    <span>Chatbot</span>
+    <button class="bot-close" (click)="close()">×</button>
+  </div>
+
+  <div class="bot-messages" #scrollBox>
+    <p *ngFor="let msg of messages">
+      <strong>{{ msg.sender }}:</strong> {{ msg.text }}
+    </p>
+  </div>
+
+  <form class="bot-form" (ngSubmit)="send()">
+    <input type="text"
+           [(ngModel)]="draft"
+           name="draft"
+           placeholder="Type de message..."
+           required>
+    <button type="submit">Envoyer</button>
+  </form>
+</div>

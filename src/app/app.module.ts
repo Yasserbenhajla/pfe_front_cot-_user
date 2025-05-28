@@ -26,6 +26,10 @@ import { AjouterRapportFinalComponent } from './ajouter-rapport-final/ajouter-ra
 import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { AjouterRapportEncadrantComponent } from './ajouter-rapport-encadrant/ajouter-rapport-encadrant.component';
 import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-rapport-encadrant.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
+import { ContactComponent } from './contact/contact.component';
+import { AjouterSujetComponent } from './ajouter-sujet/ajouter-sujet.component';
+import { ListeSujetComponent } from './liste-sujet/liste-sujet.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-
     RestPasswordComponent,
     AjouterRapportEncadrantComponent,
     ListeRapportEncadrantComponent,
+    ChatBotComponent,
+    ContactComponent,
+    AjouterSujetComponent,
+    ListeSujetComponent,
 
 
   ],
