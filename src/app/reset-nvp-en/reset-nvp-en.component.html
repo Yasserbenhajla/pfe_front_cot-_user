@@ -1,0 +1,75 @@
+<!-- Modern Reset Password Page -->
+<div class="reset-page">
+  <div class="reset-container">
+    <div class="reset-card">
+      <!-- Reset Header -->
+      <div class="reset-header">
+        <div class="reset-icon">
+          <i class="bx bx-lock-open-alt"></i>
+        </div>
+        <h1 class="reset-title">Mot de Passe Oublié ?</h1>
+        <p class="reset-subtitle">Entrez votre email pour réinitialiser votre mot de passe</p>
+      </div>
+
+      <!-- Reset Content -->
+      <div class="reset-content">
+        <!-- Reset Form -->
+        <form [formGroup]="resetForm" (ngSubmit)="resetmdpclt()" class="reset-form">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email" class="form-label">Adresse Email</label>
+            <div class="position-relative">
+              <i class="bx bx-envelope input-icon"></i>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrez votre adresse email"
+                formControlName="email"
+                [class.is-invalid]="email?.invalid && email?.touched">
+            </div>
+            <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback d-block">
+              <small *ngIf="email?.errors?.['required']" class="text-danger">L'email est requis</small>
+              <small *ngIf="email?.errors?.['email']" class="text-danger">Format d'email invalide</small>
+            </div>
+          </div>
+
+          <!-- Reset Button -->
+          <button
+            type="submit"
+            class="reset-btn"
+            [disabled]="resetForm.invalid">
+            <i class="bx bx-send me-2"></i>
+            Envoyer le Lien de Réinitialisation
+          </button>
+
+          <!-- Back to Login -->
+          <div class="back-to-login">
+            <a href="/login-etudiant" class="back-link">
+              <i class="bx bx-arrow-back me-2"></i>
+              Retour à la connexion
+            </a>
+          </div>
+        </form>
+
+        <!-- Additional Info -->
+        <div class="reset-info">
+          <div class="info-item">
+            <i class="bx bx-info-circle"></i>
+            <p>Un email de réinitialisation sera envoyé à votre adresse</p>
+          </div>
+          <div class="info-item">
+            <i class="bx bx-time"></i>
+            <p>Le lien sera valide pendant 24 heures</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="reset-footer">
+      <p>Besoin d'aide ? <a href="/contact">Contactez le support</a></p>
+      <p>&copy; 2024 Système de Gestion des Stages. Tous droits réservés.</p>
+    </div>
+  </div>
+</div>

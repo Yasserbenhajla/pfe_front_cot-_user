@@ -1,171 +1,134 @@
-<!doctype html>
-<html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:04:54 GMT -->
-<head>
-
-        <meta charset="utf-8" />
-        <title>Login | Skote - Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
-        <!-- App favicon -->
-
-
-    </head>
-
-    <body>
-        <div class="account-pages my-5 pt-sm-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card overflow-hidden">
-                            <div class="bg-primary-subtle">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <div class="text-primary p-4">
-                                            <h5 class="text-primary">Welcome Back !</h5>
-                                            <p>Sign in to continue to Skote.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-5 align-self-end">
-                                        <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="auth-logo">
-                                    <a href="index.html" class="auth-logo-light">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="assets/images/logo-light.svg" alt="" class="rounded-circle" height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-
-                                    <a href="index.html" class="auth-logo-dark">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2">
-                                    <form  (ngSubmit)="login()" [formGroup]="loginForm">
-
-
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="email">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label">Mot De Passe</label>
-                                            <div class="input-group auth-pass-inputgroup">
-                                                <input type="password" class="form-control" placeholder="Enter password"  formControlName="password" aria-label="Password" aria-describedby="password-addon">
-                                                <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-check">
-                                            <label class="form-check-label" for="remember-check">
-                                                Remember me
-                                            </label>
-                                        </div>
-
-                                        <div class="mt-3 d-grid">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <h5 class="font-size-14 mb-3">Sign in with</h5>
-
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
-                                                        <i class="mdi mdi-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
-                                                        <i class="mdi mdi-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="mdi mdi-google"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
-                                        </div>
-                                    </form>
-                                       <form
-                    id="forgot-password"
-                    class="tab-pane text-center"
-                    [class.active]="activeTab === 'forgot-password'"
-                    (ngSubmit)="forgotPassword()"
-                    [formGroup]="forgotPasswordForm"
-                  >
-                    <h4 class="m-b5 text-white">Mot de passe oublié ?</h4>
-                    <small class="font-weight-600 m-b20 d-block text-white">
-                      Nous vous enverrons un email pour réinitialiser votre mot
-                      de passe.
-                    </small>
-                    <div class="mb-3">
-                      <label class="label-title">E-MAIL *</label>
-                      <input
-                        formControlName="email"
-                        class="form-control"
-                        placeholder="Your Email Id"
-                        type="email"
-                        required
-                      />
-                    </div>
-                    <div class="text-center">
-                      <a
-                        href="javascript:void(0)"
-                        (click)="switchTab('login')"
-                        class="btn btn-light m-r10 rounded-0"
-                        >Retour</a
-                      >
-                      <button type="submit" class="btn btn-primary rounded-0">
-                        Envoyer
-                      </button>
-                    </div>
-                    <div class="mt-3">
-                      <span [innerHTML]="forgotPasswordMessage"></span>
-                    </div>
-                  </form>
-                                    <div class="container">
-                                      <div id="g_id_signin"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-
-                            <div>
-                                <p>Don't have an account ? <a href="auth-register.html" class="fw-medium text-primary"> Signup now </a> </p>
-                                <p>© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+<!-- Modern Login Etudiant Page -->
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Login Header -->
+      <div class="login-header">
+        <div class="login-icon">
+          <i class="bx bx-user-circle"></i>
         </div>
-        <!-- end account-pages -->
+        <h1 class="login-title">Connexion Étudiant</h1>
+        <p class="login-subtitle">Accédez à votre espace personnel</p>
+      </div>
 
+      <!-- Login Content -->
+      <div class="login-content">
+        <!-- Alert Container -->
+        <div class="alert-container" [innerHTML]="messageCommande"></div>
 
-    </body>
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form" *ngIf="activeTab === 'login'">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email" class="form-label">Adresse Email</label>
+            <div class="position-relative">
+              <i class="bx bx-envelope input-icon"></i>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrez votre email"
+                formControlName="email"
+                [class.is-invalid]="email?.invalid && email?.touched">
+            </div>
+            <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback d-block">
+              <small *ngIf="email?.errors?.['required']" class="text-danger">L'email est requis</small>
+              <small *ngIf="email?.errors?.['email']" class="text-danger">Format d'email invalide</small>
+            </div>
+          </div>
 
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:04:54 GMT -->
-</html>
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password" class="form-label">Mot de Passe</label>
+            <div class="position-relative">
+              <i class="bx bx-lock-alt input-icon"></i>
+              <input
+                [type]="passwordVisible ? 'text' : 'password'"
+                id="password"
+                class="form-control"
+                placeholder="Entrez votre mot de passe"
+                formControlName="password"
+                [class.is-invalid]="password?.invalid && password?.touched">
+              <button
+                type="button"
+                class="password-toggle"
+                (click)="togglePasswordVisibility()">
+                <i [class]="passwordVisible ? 'bx bx-hide' : 'bx bx-show'"></i>
+              </button>
+            </div>
+            <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback d-block">
+              <small *ngIf="password?.errors?.['required']" class="text-danger">Le mot de passe est requis</small>
+            </div>
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div class="remember-section">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember-check">
+              <label class="form-check-label" for="remember-check">
+                Se souvenir de moi
+              </label>
+            </div>
+            <a href="/ForgetPassword" class="forgot-link" (click)="switchTab('forgotPassword')">
+              Mot de passe oublié ?
+            </a>
+          </div>
+
+          <!-- Login Button -->
+          <button
+            type="submit"
+            class="login-btn"
+            [disabled]="loginForm.invalid">
+            <i class="bx bx-log-in me-2"></i>
+            Se Connecter
+          </button>
+        </form>
+        <!-- Forgot Password Form -->
+        <form [formGroup]="forgotPasswordForm" (ngSubmit)="sendResetEmail()" class="login-form" *ngIf="activeTab === 'forgotPassword'">
+          <div class="form-group">
+            <label for="forgotEmail" class="form-label">Adresse Email</label>
+            <div class="position-relative">
+              <i class="bx bx-envelope input-icon"></i>
+              <input
+                type="email"
+                id="forgotEmail"
+                class="form-control"
+                placeholder="Entrez votre email"
+                formControlName="email">
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <button
+              type="button"
+              class="btn btn-secondary flex-fill"
+              (click)="switchTab('login')">
+              <i class="bx bx-arrow-back me-2"></i>
+              Retour
+            </button>
+            <button
+              type="submit"
+              class="login-btn flex-fill">
+              <i class="bx bx-send me-2"></i>
+              Envoyer
+            </button>
+          </div>
+
+          <div class="mt-3" [innerHTML]="forgotPasswordMessage"></div>
+        </form>
+
+        <!-- Google Login -->
+        <div class="google-login" *ngIf="activeTab === 'login'">
+          <p>Ou connectez-vous avec</p>
+          <div id="g_id_signin"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-footer">
+      <p>Pas encore de compte ? <a href="/register">Créer un compte</a></p>
+      <p>&copy; 2024 Système de Gestion des Stages. Tous droits réservés.</p>
+    </div>
+  </div>
+</div>

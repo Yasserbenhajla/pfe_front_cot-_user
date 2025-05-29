@@ -50,55 +50,53 @@ export class AjouterStageComponent {
 
 
   addNewStage() {
-    let data = this.stageForm.value;
-    let datas = this.services.userDetails();
-    console.log(data);
-    let model: SaveStage = new SaveStage();
-    console.log(model);
-    model.id = null;
-    model.intitule=data.intitule;
-    model.description=data.description;
-    model.lieu=data.lieu ;
-    model.pays=data.pays;
-    model.technologieOutil=data.technologieOutil;
-    model.nomEntreprise=data.nomEntreprise ;
-    model.dateDeb=data.dateDeb;
-    model.dateFin=data.dateFin ;
-    model.typeDeStageId= data.typeDeStage;
-    model.etudiantId = datas.id;
+  let data = this.stageForm.value;
+  let datas = this.services.userDetails();
 
+  if (this.stageForm.invalid) {
+    this.messageCommande = `
+      <div class="alert alert-danger" role="alert">
+        Veuillez remplir tous les champs correctement avant de soumettre.
+      </div>`;
+    return;
+  }
 
-    if (
-      data.intitule == 0 ||
-      data.description == 0 ||
-      data.lieu == 0 ||
-      data.pays == 0 ||
-      data.technologieOutil == 0 ||
-      data.nomEntreprise == 0 ||
-      data.dateDeb == 0 ||
-      data.dateFin == 0 ||
-      data.typeDeStage == 0 ||
-      data.etudiantId == 0
+  let model: SaveStage = new SaveStage();
+  model.id = null;
+  model.intitule = data.intitule;
+  model.description = data.description;
+  model.lieu = data.lieu;
+  model.pays = data.pays;
+  model.technologieOutil = data.technologieOutil;
+  model.nomEntreprise = data.nomEntreprise;
+  model.dateDeb = data.dateDeb;
+  model.dateFin = data.dateFin;
+  model.typeDeStageId = data.typeDeStage;
+  model.etudiantId = datas.id;
 
-    ) {
-      this.messageCommande = `<div class="alert
-      alert-danger" role="alert">
-      remplir votre champ
-    </div>`;
-    } else {
-      this.services.addStage(model).subscribe(
-        (res) => {
-          console.log(res);
+  this.services.addStage(model).subscribe(
+    (res) => {
+      console.log(res);
+      this.messageCommande = `
+        <div class="alert alert-success" role="alert">
+          Stage ajouté avec succès !
+        </div>`;
 
-          this.router.navigate(['/listeStage']);
-        },
-        (err) => {}
-      );
+      // Redirection après 2.5s
       setTimeout(() => {
         this.messageCommande = '';
-      }, 3000);
+        this.router.navigate(['/listeStage']);
+      }, 2500);
+    },
+    (err) => {
+      this.messageCommande = `
+        <div class="alert alert-danger" role="alert">
+          Une erreur est survenue lors de l'ajout du stage.
+        </div>`;
     }
-  }
+  );
+}
+
 
   ngOnInit(): void {
     this.services.getTypeStage().subscribe((typeStage) => {

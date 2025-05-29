@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Contact | Skote - Admin & Dashboard Template</title>
+    <title>Modifier Profil Étudiant | Système de Gestion des Stages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -25,6 +25,22 @@
             <div class="page-content modern-page">
                 <div class="container-fluid">
 
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0 font-size-18">Modifier Profil</h4>
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Profil</a></li>
+                                        <li class="breadcrumb-item active">Modifier Profil</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
                     <!-- Modern Form Container -->
                     <div class="modern-form-container">
                         <div class="row">
@@ -33,18 +49,15 @@
                                     <!-- Form Header -->
                                     <div class="form-header">
                                         <div class="header-icon">
-                                            <i class="bx bx-envelope"></i>
+                                            <i class="bx bx-user-circle"></i>
                                         </div>
-                                        <h2 class="form-title">Nous Contacter</h2>
-                                        <p class="form-subtitle">Envoyez-nous un message et nous vous répondrons dans les plus brefs délais</p>
+                                        <h2 class="form-title">Modifier Mon Profil</h2>
+                                        <p class="form-subtitle">Mettez à jour vos informations personnelles</p>
                                     </div>
 
                                     <!-- Form Content -->
                                     <div class="form-content">
-                                        <!-- Alert Container -->
-                                        <div class="alert-container" [innerHTML]="messageCommande"></div>
-
-                                        <form [formGroup]="ContactForm" (ngSubmit)="addNewContact()" class="modern-form">
+                                        <form [formGroup]="updateForm" (ngSubmit)="updateEtudiant()" class="modern-form">
 
                                             <!-- Section: Informations Personnelles -->
                                             <div class="section-label">
@@ -84,30 +97,42 @@
                                                     formControlName="email">
                                             </div>
 
-                                            <!-- Section: Message -->
+                                            <!-- Section: Sécurité et Informations Académiques -->
                                             <div class="section-label">
-                                                <i class="bx bx-message-dots"></i>
-                                                <span>Votre Message</span>
+                                                <i class="bx bx-shield"></i>
+                                                <span>Sécurité et Informations Académiques</span>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="sujet" class="form-label">Sujet</label>
+                                                <label for="password" class="form-label">Mot de Passe</label>
                                                 <input
                                                     class="form-control"
-                                                    type="text"
-                                                    id="sujet"
-                                                    placeholder="Objet de votre message"
-                                                    formControlName="sujet">
+                                                    type="password"
+                                                    id="password"
+                                                    placeholder="Entrez votre mot de passe"
+                                                    formControlName="password">
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="message" class="form-label">Message</label>
-                                                <textarea
-                                                    class="form-control"
-                                                    id="message"
-                                                    rows="5"
-                                                    placeholder="Écrivez votre message ici..."
-                                                    formControlName="message"></textarea>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="niveau" class="form-label">Niveau d'Études</label>
+                                                    <input
+                                                        class="form-control"
+                                                        type="text"
+                                                        id="niveau"
+                                                        placeholder="Ex: Master 2, Licence 3..."
+                                                        formControlName="niveau">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="tel" class="form-label">Téléphone</label>
+                                                    <input
+                                                        class="form-control"
+                                                        type="tel"
+                                                        id="tel"
+                                                        placeholder="Entrez votre numéro de téléphone"
+                                                        formControlName="tel">
+                                                </div>
                                             </div>
 
                                             <!-- Form Actions -->
@@ -116,9 +141,9 @@
                                                     <i class="bx bx-x"></i>
                                                     Annuler
                                                 </button>
-                                                <button type="submit" class="btn-primary" [disabled]="!ContactForm.valid">
-                                                    <i class="bx bx-send"></i>
-                                                    Envoyer le Message
+                                                <button type="submit" class="btn-primary" [disabled]="!updateForm.valid">
+                                                    <i class="bx bx-save"></i>
+                                                    Enregistrer les Modifications
                                                 </button>
                                             </div>
                                         </form>
@@ -128,13 +153,16 @@
                         </div>
                     </div>
 
-                </div>
+                </div> <!-- container-fluid -->
             </div>
+            <!-- End Page-content -->
 
             <app-footer></app-footer>
         </div>
+        <!-- end main content-->
 
     </div>
+    <!-- END layout-wrapper -->
 
 </body>
 

@@ -12,7 +12,8 @@ import { CrudService } from '../service/crud.service';
 export class LoginEncadrantComponent {
 
   messageCommande=""
-    loginForm: FormGroup
+  passwordVisible: boolean = false;
+  loginForm: FormGroup
       constructor(
         private fb: FormBuilder,
         private service:CrudService,
@@ -62,7 +63,7 @@ export class LoginEncadrantComponent {
         </div>`
               let token = res.token;
               localStorage.setItem("myTokenEncadrant",token);
-              this.router.navigate(['/']).then(()=>{window.location.reload()});
+              this.router.navigate(['/home']).then(()=>{window.location.reload()});
             },
             err=>{
               console.log(err);
@@ -74,5 +75,9 @@ export class LoginEncadrantComponent {
           )
 
         }
+      }
+
+      togglePasswordVisibility() {
+        this.passwordVisible = !this.passwordVisible;
       }
     }

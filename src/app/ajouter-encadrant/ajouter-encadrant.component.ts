@@ -15,6 +15,7 @@ import { SaveEncadrant } from '../Entities/SaveEncadrant';
 })
 export class AjouterEncadrantComponent {
   messageCommande = "";
+  passwordVisible: boolean = false;
   encadrantForm: FormGroup;
   listequalite:Qualite[]
   listespecialite:Specialite[]
@@ -39,6 +40,10 @@ export class AjouterEncadrantComponent {
   get tel() { return this.encadrantForm.get('tel'); }
   get qualite() { return this.encadrantForm.get('qualite'); }
   get specialite() { return this.encadrantForm.get('specialite'); }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
 
   addNewEncadrant() {
      let data = this.encadrantForm.value;

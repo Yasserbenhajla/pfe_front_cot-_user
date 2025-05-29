@@ -36,6 +36,7 @@ export class CrudService {
   helper=new JwtHelperService()
   loginUserUrl='http://localhost:8081/api/Etudiant/login'
   loginUseerUrl='http://localhost:8081/api/Encadrant/login'
+    resetMdpClt="http://localhost:8081/api/Etudiant/forgotmdp"
 
   constructor(
     private http:HttpClient) { }
@@ -188,6 +189,23 @@ export class CrudService {
       getJournal(): Observable<Journal[]> {
       return this.http.get<Journal[]>(this.apiUrl + "/journal");
     }
+    resetMdpEtudiant(etudiant:Etudiant){
+    return this.http.post<any>(this.resetMdpClt, etudiant);
+    }
+
+    findClientById(id: number): Observable<Etudiant> {
+    const url = `${this.apiUrl}/Etudiant/${id}`;
+    return this.http.get<Etudiant>(url);
+}
+
+    updateEtudiant(etudiant: Etudiant, id: number): Observable<any> {
+    const url = `${this.apiUrl}/Etudiant/${id}`;
+    return this.http.put<any>(url, etudiant);
+}
+
+
+
+
 
 
 

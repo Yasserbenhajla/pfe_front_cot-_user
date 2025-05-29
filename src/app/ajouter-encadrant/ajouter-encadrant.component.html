@@ -1,176 +1,187 @@
-<!doctype html>
-<html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:04:54 GMT -->
-<head>
-
-        <meta charset="utf-8" />
-        <title>Register | Skote - Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
-        <!-- App favicon -->
-
-
-    </head>
-
-    <body>
-
-        <div class="account-pages my-5 pt-sm-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card overflow-hidden">
-                            <div class="bg-primary-subtle">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <div class="text-primary p-4">
-                                            <h5 class="text-primary">Free Register</h5>
-                                            <p>Get your free Skote account now.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-5 align-self-end">
-                                        <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div>
-                                    <a href="index.html">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2">
-                                    <form (ngSubmit)="addNewEncadrant()" [formGroup]="encadrantForm">
-
-                                      <div class="mb-3">
-                                        <label for="prenom" class="form-label">prenom</label>
-                                        <input type="text" class="form-control"  placeholder="Enter prenom" required formControlName="prenom">
-                                        <div class="invalid-feedback">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3">
-                                      <label for="nom" class="form-label">nom</label>
-                                      <input type="text" class="form-control"  placeholder="Enter nom" required formControlName="nom">
-                                      <div class="invalid-feedback">
-
-                                      </div>
-                                  </div>
-
-                                        <div class="mb-3">
-                                            <label for="useremail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="useremail" placeholder="Enter email" formControlName="email">
-                                            <div class="invalid-feedback">
-                                                Please Enter Email
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="userpassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="userpassword" placeholder="Enter password" formControlName="password">
-                                            <div class="invalid-feedback">
-                                                Please Enter Password
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                          <label for="tel" class="form-label">Téléphone</label>
-                                          <input type="tel" class="form-control"  placeholder="Enter le numero" formControlName="tel">
-                                          <div class="invalid-feedback">
-
-                                          </div>
-                                      </div>
-
-                                      <div class="mb-3">
-                                        <label for="qualite" class="form-label">Qualité</label>
-                                        <select formControlName="qualite" class="form-control">
-                                          <option
-                                            *ngFor="let qualite of listequalite"
-                                            value="{{ qualite.id }}"
-                                          >
-                                            {{ qualite.nom }}
-
-                                          </option>
-                                        </select>
-                                        <div class="invalid-feedback">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3">
-                                      <label for="specialite" class="form-label">Specialte</label>
-                                      <select formControlName="specialite" class="form-control">
-                                        <option
-                                          *ngFor="let specialite of listespecialite"
-                                          value="{{ specialite.id }}"
-                                        >
-                                          {{ specialite.nom }}
-
-                                        </option>
-                                      </select>
-                                      <div class="invalid-feedback">
-
-                                      </div>
-                                  </div>
-
-                                        <div class="mt-4 d-grid">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit">Register</button>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <h5 class="font-size-14 mb-3">Sign up using</h5>
-
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
-                                                        <i class="mdi mdi-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
-                                                        <i class="mdi mdi-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="mdi mdi-google"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <p class="mb-0">By registering you agree to the Skote <a href="#" class="text-primary">Terms of Use</a></p>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-
-                            <div>
-                                <p>Already have an account ? <a href="auth-login.html" class="fw-medium text-primary"> Login</a> </p>
-                                <p>© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+<!-- Modern Register Encadrant Page -->
+<div class="register-page">
+  <div class="register-container">
+    <div class="register-card">
+      <!-- Register Header -->
+      <div class="register-header">
+        <div class="register-icon">
+          <i class="bx bx-user-badge"></i>
         </div>
+        <h1 class="register-title">Inscription Encadrant</h1>
+        <p class="register-subtitle">Créez votre compte encadrant pour superviser les stages</p>
+      </div>
 
-        <!-- JAVASCRIPT -->
+      <!-- Register Content -->
+      <div class="register-content">
+        <!-- Alert Container -->
+        <div class="alert-container" [innerHTML]="messageCommande"></div>
 
+        <!-- Register Form -->
+        <form [formGroup]="encadrantForm" (ngSubmit)="addNewEncadrant()" class="register-form">
 
-    </body>
+          <!-- Nom et Prénom -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom" class="form-label">Nom</label>
+              <div class="position-relative">
+                <i class="bx bx-user input-icon"></i>
+                <input
+                  type="text"
+                  id="nom"
+                  class="form-control"
+                  placeholder="Entrez votre nom"
+                  formControlName="nom"
+                  [class.is-invalid]="nom?.invalid && nom?.touched">
+              </div>
+              <div *ngIf="nom?.invalid && nom?.touched" class="invalid-feedback d-block">
+                <small *ngIf="nom?.errors?.['required']" class="text-danger">Le nom est requis</small>
+                <small *ngIf="nom?.errors?.['minlength']" class="text-danger">Le nom doit contenir au moins 4 caractères</small>
+              </div>
+            </div>
 
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Mar 2025 23:04:54 GMT -->
-</html>
+            <div class="form-group">
+              <label for="prenom" class="form-label">Prénom</label>
+              <div class="position-relative">
+                <i class="bx bx-user input-icon"></i>
+                <input
+                  type="text"
+                  id="prenom"
+                  class="form-control"
+                  placeholder="Entrez votre prénom"
+                  formControlName="prenom"
+                  [class.is-invalid]="prenom?.invalid && prenom?.touched">
+              </div>
+              <div *ngIf="prenom?.invalid && prenom?.touched" class="invalid-feedback d-block">
+                <small *ngIf="prenom?.errors?.['required']" class="text-danger">Le prénom est requis</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="form-label">Adresse Email</label>
+            <div class="position-relative">
+              <i class="bx bx-envelope input-icon"></i>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrez votre email"
+                formControlName="email"
+                [class.is-invalid]="email?.invalid && email?.touched">
+            </div>
+            <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback d-block">
+              <small *ngIf="email?.errors?.['required']" class="text-danger">L'email est requis</small>
+              <small *ngIf="email?.errors?.['email']" class="text-danger">Format d'email invalide</small>
+            </div>
+          </div>
+
+          <!-- Mot de passe -->
+          <div class="form-group">
+            <label for="password" class="form-label">Mot de Passe</label>
+            <div class="position-relative">
+              <i class="bx bx-lock-alt input-icon"></i>
+              <input
+                [type]="passwordVisible ? 'text' : 'password'"
+                id="password"
+                class="form-control"
+                placeholder="Entrez votre mot de passe"
+                formControlName="password"
+                [class.is-invalid]="password?.invalid && password?.touched">
+              <button
+                type="button"
+                class="password-toggle"
+                (click)="togglePasswordVisibility()">
+                <i [class]="passwordVisible ? 'bx bx-hide' : 'bx bx-show'"></i>
+              </button>
+            </div>
+            <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback d-block">
+              <small *ngIf="password?.errors?.['required']" class="text-danger">Le mot de passe est requis</small>
+            </div>
+          </div>
+
+          <!-- Téléphone -->
+          <div class="form-group">
+            <label for="tel" class="form-label">Téléphone</label>
+            <div class="position-relative">
+              <i class="bx bx-phone input-icon"></i>
+              <input
+                type="tel"
+                id="tel"
+                class="form-control"
+                placeholder="Entrez votre téléphone"
+                formControlName="tel"
+                [class.is-invalid]="tel?.invalid && tel?.touched">
+            </div>
+            <div *ngIf="tel?.invalid && tel?.touched" class="invalid-feedback d-block">
+              <small *ngIf="tel?.errors?.['required']" class="text-danger">Le téléphone est requis</small>
+              <small *ngIf="tel?.errors?.['pattern']" class="text-danger">Format de téléphone invalide (8-15 chiffres)</small>
+            </div>
+          </div>
+
+          <!-- Qualité et Spécialité -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="qualite" class="form-label">Qualité</label>
+              <div class="position-relative">
+                <i class="bx bx-award input-icon"></i>
+                <select
+                  formControlName="qualite"
+                  class="form-select"
+                  id="qualite"
+                  [class.is-invalid]="qualite?.invalid && qualite?.touched">
+                  <option value="">Sélectionnez votre qualité</option>
+                  <option
+                    *ngFor="let qualite of listequalite"
+                    [value]="qualite.id">
+                    {{ qualite.nom }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="qualite?.invalid && qualite?.touched" class="invalid-feedback d-block">
+                <small *ngIf="qualite?.errors?.['required']" class="text-danger">La qualité est requise</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="specialite" class="form-label">Spécialité</label>
+              <div class="position-relative">
+                <i class="bx bx-brain input-icon"></i>
+                <select
+                  formControlName="specialite"
+                  class="form-select"
+                  id="specialite"
+                  [class.is-invalid]="specialite?.invalid && specialite?.touched">
+                  <option value="">Sélectionnez votre spécialité</option>
+                  <option
+                    *ngFor="let specialite of listespecialite"
+                    [value]="specialite.id">
+                    {{ specialite.nom }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="specialite?.invalid && specialite?.touched" class="invalid-feedback d-block">
+                <small *ngIf="specialite?.errors?.['required']" class="text-danger">La spécialité est requise</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Register Button -->
+          <button
+            type="submit"
+            class="register-btn"
+            [disabled]="encadrantForm.invalid">
+            <i class="bx bx-user-badge me-2"></i>
+            Créer mon Compte Encadrant
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="register-footer">
+      <p>Déjà un compte ? <a href="/loginEncadrant">Se connecter</a></p>
+      <p>&copy; 2024 Système de Gestion des Stages. Tous droits réservés.</p>
+    </div>
+  </div>
+</div>

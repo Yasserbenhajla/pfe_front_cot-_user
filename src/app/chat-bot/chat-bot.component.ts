@@ -23,6 +23,13 @@ export class ChatBotComponent {
   open() { this.opened = true; }
   close() { this.opened = false; }
 
+  getCurrentTime(): string {
+    return new Date().toLocaleTimeString('fr-FR', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
   async send() {
     const text = this.draft.trim();
     if (!text) return;

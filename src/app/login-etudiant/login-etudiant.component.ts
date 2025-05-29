@@ -35,6 +35,14 @@ export class LoginEtudiantComponent {
       }
 
       this.loginForm = this.fb.group(formControls)
+
+      // Initialize forgot password form
+      this.forgotPasswordForm = this.fb.group({
+        email: new FormControl('', [
+          Validators.required,
+          Validators.email
+        ])
+      });
     }
 
     get email() { return this.loginForm.get('email') }
@@ -132,11 +140,9 @@ export class LoginEtudiantComponent {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
-      forgotPassword() {
+
+  sendResetEmail() {
     if (this.forgotPasswordForm.invalid) {
-      this.forgotPasswordMessage = `<div class="alert alert-danger" role="alert">
-        Veuillez entrer un email valide
-      </div>`;
       return;
     }
 
@@ -146,13 +152,13 @@ export class LoginEtudiantComponent {
         this.forgotPasswordMessage = `<div class="alert alert-success" role="alert">
           Un lien de réinitialisation a été envoyé à votre email
         </div>`;
-        this.forgotPasswordForm.reset();
       },
       error: (err) => {
+        console.log(err);
         this.forgotPasswordMessage = `<div class="alert alert-danger" role="alert">
-          ${err.error || "Erreur lors de l'envoi du lien de réinitialisation"}
+          Erreur lors de l'envoi de l'email
         </div>`;
-      },
+      }
     });
   }
 

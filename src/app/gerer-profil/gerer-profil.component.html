@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gérer Profil | Système de Gestion des Stages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+</head>
+
+<body data-sidebar="dark">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <app-header></app-header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <app-menu></app-menu>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+            <div class="page-content modern-page">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0 font-size-18">Mon Profil</h4>
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Profil</a></li>
+                                        <li class="breadcrumb-item active">Gérer Profil</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <!-- Profile Container -->
+                    <div class="modern-profile-container">
+                        <div class="row">
+                            <!-- Profile Card -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="modern-profile-card">
+                                    <!-- Profile Header -->
+                                    <div class="profile-header">
+                                        <div class="profile-avatar">
+                                            <img
+                                                id="avatar-photo"
+                                                #avatarImg
+                                                class="avatar-image"
+                                                [src]="userDetails.image ? userDetails.image : 'https://bootdey.com/img/Content/avatar/avatar6.png'"
+                                                alt="Photo de profil">
+                                            <div class="avatar-status"></div>
+                                        </div>
+                                        <div class="profile-info">
+                                            <h3 class="profile-name">{{userDetails.nom}} {{userDetails.prenom}}</h3>
+                                            <p class="profile-email">{{userDetails.email}}</p>
+                                            <span class="profile-badge">Utilisateur Actif</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Profile Stats -->
+                                    <div class="profile-stats">
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="bx bx-calendar"></i>
+                                            </div>
+                                            <div class="stat-info">
+                                                <span class="stat-label">Membre depuis</span>
+                                                <span class="stat-value">2024</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="bx bx-shield-check"></i>
+                                            </div>
+                                            <div class="stat-info">
+                                                <span class="stat-label">Statut</span>
+                                                <span class="stat-value">Vérifié</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Profile Details -->
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="modern-profile-card">
+                                    <!-- Profile Details Header -->
+                                    <div class="details-header">
+                                        <div class="header-icon">
+                                            <i class="bx bx-user-detail"></i>
+                                        </div>
+                                        <h4 class="details-title">Informations Personnelles</h4>
+                                        <p class="details-subtitle">Consultez et gérez vos informations de profil</p>
+                                    </div>
+
+                                    <!-- Profile Details Content -->
+                                    <div class="details-content">
+                                        <!-- Personal Information Section -->
+                                        <div class="info-section">
+                                            <h5 class="section-title">
+                                                <i class="bx bx-user"></i>
+                                                Informations de Base
+                                            </h5>
+
+                                            <div class="info-grid">
+                                                <div class="info-item">
+                                                    <label class="info-label">Nom</label>
+                                                    <div class="info-value">{{userDetails.nom}}</div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <label class="info-label">Prénom</label>
+                                                    <div class="info-value">{{userDetails.prenom}}</div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <label class="info-label">Adresse Email</label>
+                                                    <div class="info-value">{{userDetails.email}}</div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <label class="info-label">Téléphone</label>
+                                                    <div class="info-value">{{userDetails.tel || 'Non renseigné'}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Security Section -->
+                                        <div class="info-section">
+                                            <h5 class="section-title">
+                                                <i class="bx bx-shield"></i>
+                                                Sécurité
+                                            </h5>
+
+                                            <div class="info-grid">
+                                                <div class="info-item">
+                                                    <label class="info-label">Mot de Passe</label>
+                                                    <div class="info-value password-hidden">
+                                                        <span>••••••••••••</span>
+                                                        <button type="button" class="btn-link">Modifier</button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="info-item">
+                                                    <label class="info-label">Dernière Connexion</label>
+                                                    <div class="info-value">Aujourd'hui</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Action Buttons -->
+                                        <div class="profile-actions">
+                                            <a
+                                                class="btn-primary"
+                                                href="modifierProfilEtudiant/{{userDetails.id}}">
+                                                <i class="bx bx-edit"></i>
+                                                Modifier le Profil
+                                            </a>
+                                            <button type="button" class="btn-secondary">
+                                                <i class="bx bx-download"></i>
+                                                Exporter les Données
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <app-footer></app-footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+</body>
+
+</html>

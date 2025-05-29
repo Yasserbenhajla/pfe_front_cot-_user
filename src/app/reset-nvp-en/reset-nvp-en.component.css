@@ -1,5 +1,5 @@
-/* Modern Register Encadrant Design */
-.register-page {
+/* Modern Reset Password Design - Compatible with loginEtudiant and loginEncadrant */
+.reset-page {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   display: flex;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.register-page::before {
+.reset-page::before {
   content: '';
   position: absolute;
   top: 0;
@@ -20,15 +20,15 @@
   opacity: 0.3;
 }
 
-.register-container {
+.reset-container {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   padding: 0 1rem;
 }
 
-.register-card {
+.reset-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
@@ -38,20 +38,20 @@
   transition: all 0.3s ease;
 }
 
-.register-card:hover {
+.reset-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
 }
 
-/* Register Header */
-.register-header {
+/* Reset Header */
+.reset-header {
   text-align: center;
   padding: 2rem 2rem 1rem;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.register-icon {
+.reset-icon {
   width: 70px;
   height: 70px;
   margin: 0 auto 1rem;
@@ -66,7 +66,7 @@
   position: relative;
 }
 
-.register-icon::after {
+.reset-icon::after {
   content: '';
   position: absolute;
   inset: -3px;
@@ -77,7 +77,7 @@
   mask-composite: exclude;
 }
 
-.register-title {
+.reset-title {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
@@ -87,19 +87,19 @@
   background-clip: text;
 }
 
-.register-subtitle {
+.reset-subtitle {
   color: #6c757d;
   font-size: 1rem;
   margin: 0;
   font-weight: 400;
 }
 
-/* Register Content */
-.register-content {
+/* Reset Content */
+.reset-content {
   padding: 2rem;
 }
 
-.register-form {
+.reset-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -110,12 +110,6 @@
   position: relative;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
 .form-label {
   display: block;
   font-weight: 600;
@@ -124,7 +118,7 @@
   font-size: 0.95rem;
 }
 
-.form-control, .form-select {
+.form-control {
   width: 100%;
   padding: 1rem 1rem 1rem 3rem;
   border: 2px solid #e9ecef;
@@ -135,7 +129,7 @@
   position: relative;
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -145,6 +139,10 @@
 .form-control::placeholder {
   color: #adb5bd;
   font-style: italic;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
 }
 
 /* Input Icons */
@@ -163,35 +161,8 @@
   color: #667eea;
 }
 
-/* Password Toggle */
-.password-toggle {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #6c757d;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.password-toggle:hover {
-  color: #667eea;
-}
-
-/* Select Styling */
-.form-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23667eea' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-  padding-right: 2.5rem;
-}
-
-/* Register Button */
-.register-btn {
+/* Reset Button */
+.reset-btn {
   width: 100%;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -207,18 +178,18 @@
   overflow: hidden;
 }
 
-.register-btn:hover:not(:disabled) {
+.reset-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 }
 
-.register-btn:disabled {
+.reset-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.register-btn::before {
+.reset-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -229,93 +200,127 @@
   transition: left 0.5s;
 }
 
-.register-btn:hover::before {
+.reset-btn:hover::before {
   left: 100%;
 }
 
-/* Alert Container */
-.alert-container {
-  margin-bottom: 1.5rem;
+/* Back to Login */
+.back-to-login {
+  text-align: center;
+  margin-top: 1rem;
 }
 
-.alert {
-  border-radius: 12px;
-  border: none;
+.back-link {
+  color: #667eea;
+  text-decoration: none;
+  font-size: 0.95rem;
   font-weight: 500;
-  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.alert-success {
-  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
-  color: #155724;
-  border-left: 4px solid #28a745;
+.back-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
 }
 
-.alert-danger {
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(200, 35, 51, 0.1) 100%);
-  color: #721c24;
-  border-left: 4px solid #dc3545;
+/* Reset Info */
+.reset-info {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.alert-warning {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 171, 0, 0.1) 100%);
-  color: #856404;
-  border-left: 4px solid #ffc107;
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item i {
+  color: #667eea;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-item p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 /* Footer */
-.register-footer {
+.reset-footer {
   text-align: center;
   margin-top: 2rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
 }
 
-.register-footer a {
+.reset-footer a {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
 }
 
-.register-footer a:hover {
+.reset-footer a:hover {
   color: white;
   text-decoration: underline;
 }
 
+/* Validation Feedback */
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .register-container {
+  .reset-container {
     max-width: 95%;
   }
 
-  .register-header {
+  .reset-header {
     padding: 1.5rem 1rem 1rem;
   }
 
-  .register-content {
+  .reset-content {
     padding: 1.5rem;
   }
 
-  .register-title {
+  .reset-title {
     font-size: 1.5rem;
   }
 
-  .register-subtitle {
+  .reset-subtitle {
     font-size: 0.9rem;
   }
 
-  .register-icon {
+  .reset-icon {
     width: 60px;
     height: 60px;
     font-size: 1.8rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .form-control, .form-select {
+  .form-control {
     padding: 0.875rem 0.875rem 0.875rem 2.5rem;
   }
 
@@ -324,8 +329,13 @@
     font-size: 1.1rem;
   }
 
-  .password-toggle {
-    right: 0.875rem;
-    font-size: 1.1rem;
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .info-item i {
+    font-size: 1.5rem;
   }
 }

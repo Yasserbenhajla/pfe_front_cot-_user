@@ -23,13 +23,16 @@ import { ListeDemandeStageComponent } from './liste-demande-stage/liste-demande-
 import { ConfirmationDemandeStageComponent } from './confirmation-demande-stage/confirmation-demande-stage.component';
 import { AjouterStageComponent } from './ajouter-stage/ajouter-stage.component';
 import { AjouterRapportFinalComponent } from './ajouter-rapport-final/ajouter-rapport-final.component';
-import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { AjouterRapportEncadrantComponent } from './ajouter-rapport-encadrant/ajouter-rapport-encadrant.component';
 import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-rapport-encadrant.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ContactComponent } from './contact/contact.component';
 import { AjouterSujetComponent } from './ajouter-sujet/ajouter-sujet.component';
 import { ListeSujetComponent } from './liste-sujet/liste-sujet.component';
+import { ResetNvpEnComponent } from './reset-nvp-en/reset-nvp-en.component';
+import { GererProfilEtudiantComponent } from './gerer-profil-etudiant/gerer-profil-etudiant.component';
+import { GererProfilComponent } from './gerer-profil/gerer-profil.component';
+
 
 @NgModule({
   declarations: [
@@ -51,13 +54,17 @@ import { ListeSujetComponent } from './liste-sujet/liste-sujet.component';
     ConfirmationDemandeStageComponent,
     AjouterStageComponent,
     AjouterRapportFinalComponent,
-    RestPasswordComponent,
     AjouterRapportEncadrantComponent,
     ListeRapportEncadrantComponent,
     ChatBotComponent,
     ContactComponent,
     AjouterSujetComponent,
     ListeSujetComponent,
+    ResetNvpEnComponent,
+    GererProfilEtudiantComponent,
+    GererProfilComponent,
+  
+
 
 
   ],

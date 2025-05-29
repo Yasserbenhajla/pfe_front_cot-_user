@@ -12,6 +12,7 @@ import { CrudService } from '../service/crud.service';
 export class AjouterEtudiantComponent {
 
   messageCommande = "";
+  passwordVisible: boolean = false;
   etudiantForm: FormGroup;
 
   constructor(private services: CrudService, private router: Router, private fb: FormBuilder) {
@@ -32,6 +33,10 @@ export class AjouterEtudiantComponent {
   get password() { return this.etudiantForm.get('password'); }
   get niveau() { return this.etudiantForm.get('niveau'); }
   get tel() { return this.etudiantForm.get('tel'); }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
 
   addNewEtudiant() {
     let data = this.etudiantForm.value;

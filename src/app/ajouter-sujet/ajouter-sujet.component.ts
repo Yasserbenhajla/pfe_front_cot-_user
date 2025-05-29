@@ -39,45 +39,46 @@ messageCommande = '';
 
 
 
-  addNewSujet() {
-    let data = this.sujetForm.value;
-        let datas = this.services.userDetails();
-        console.log(data);
-        let model: SaveSujet = new SaveSujet();
-        console.log(model);
-        model.id = null;
-        model.description = data.description;
-        model.idEtudiant = datas.id;
-        model.idStage=data.stage
+addNewSujet() {
+  let data = this.sujetForm.value;
+  let datas = this.services.userDetails();
+  console.log(data);
 
+  let model: SaveSujet = new SaveSujet();
+  model.id = null;
+  model.description = data.description;
+  model.idEtudiant = datas.id;
+  model.idStage = data.stage;
 
-        if (
-          data.description == 0 ||
+  if (!data.description || !data.stage) {
+    this.messageCommande = `
+      <div class="alert alert-danger" role="alert">
+        Veuillez remplir tous les champs requis.
+      </div>`;
+  } else {
+    this.services.addSujet(model).subscribe(
+      (res) => {
+        this.messageCommande = `
+          <div class="alert alert-success" role="alert">
+            Sujet ajouté avec succès !
+          </div>`;
 
-          data.idEtudiant == 0 ||
-
-          data.stage == 0
-
-
-        ) {
-          this.messageCommande = `<div class="alert
-          alert-danger" role="alert">
-          remplir votre champ
-        </div>`;
-        } else {
-          this.services.addSujet(model).subscribe(
-            (res) => {
-              console.log(res);
-
-              this.router.navigate(['/listeSujet']);
-            },
-            (err) => {}
-          );
-          setTimeout(() => {
-            this.messageCommande = '';
-          }, 3000);
-        }
+        // Attendre 2.5 secondes avant de rediriger
+        setTimeout(() => {
+          this.messageCommande = '';
+          this.router.navigate(['/listeSujet']);
+        }, 2500);
+      },
+      (err) => {
+        this.messageCommande = `
+          <div class="alert alert-danger" role="alert">
+            Une erreur est survenue lors de l'ajout du sujet.
+          </div>`;
       }
+    );
+  }
+}
+
       ngOnInit(): void {
     this.services.getStage().subscribe((stage) => {
       this.listeStage = stage;

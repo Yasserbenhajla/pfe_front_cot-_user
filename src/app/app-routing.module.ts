@@ -14,18 +14,22 @@ import { ListeDemandeStageComponent } from './liste-demande-stage/liste-demande-
 import { ConfirmationDemandeStageComponent } from './confirmation-demande-stage/confirmation-demande-stage.component';
 import { AjouterStageComponent } from './ajouter-stage/ajouter-stage.component';
 import { AjouterRapportFinalComponent } from './ajouter-rapport-final/ajouter-rapport-final.component';
-import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { AjouterRapportEncadrantComponent } from './ajouter-rapport-encadrant/ajouter-rapport-encadrant.component';
 import { ListeRapportEncadrantComponent } from './liste-rapport-encadrant/liste-rapport-encadrant.component';
 import { Contact } from './Entities/Contact';
 import { ContactComponent } from './contact/contact.component';
 import { ListeSujetComponent } from './liste-sujet/liste-sujet.component';
 import { AjouterSujetComponent } from './ajouter-sujet/ajouter-sujet.component';
+import { ResetNvpEnComponent } from './reset-nvp-en/reset-nvp-en.component';
+import { GererProfilEtudiantComponent } from './gerer-profil-etudiant/gerer-profil-etudiant.component';
+import { GererProfilComponent } from './gerer-profil/gerer-profil.component';
+
+
 
 const routes: Routes = [
-  { path: '', component: AjouterEncadrantComponent },
+  { path: 'ajouterEncadrant', component: AjouterEncadrantComponent },
   { path: 'ajouterEtudiant', component: AjouterEtudiantComponent },
-  { path: 'loginEtudiant', component:LoginEtudiantComponent },
+  { path: '', component:LoginEtudiantComponent },
   { path: 'loginEncadrant', component:LoginEncadrantComponent },
   { path: 'ajouterJournal', component:AjouterJournalComponent},
   { path: 'ajouterRapport', component:AjouterRapportComponent},
@@ -37,12 +41,14 @@ const routes: Routes = [
   {path: 'ConfirmtionDemande',component:ConfirmationDemandeStageComponent},
   {path: 'AjouterStage',component:AjouterStageComponent},
   {path: 'AjouterRapportFinal',component:AjouterRapportFinalComponent},
-  {path: 'RestPassword',component:RestPasswordComponent},
   {path: 'ajouterRapportEncadrant',component:AjouterRapportEncadrantComponent},
   {path: 'listeRapportEncadrant',component:ListeRapportEncadrantComponent},
   {path: 'Contact',component:ContactComponent},
   {path: 'listesujet',component:ListeSujetComponent},
   {path: 'AjouterSujet',component:AjouterSujetComponent},
+  {path: 'ForgetPassword',component:ResetNvpEnComponent},
+  {path: 'modifierProfilEtudiant/:id',component:GererProfilEtudiantComponent},
+   {path: 'Profil',component:GererProfilComponent},
 
 
 

@@ -43,49 +43,45 @@ export class ContactComponent {
 
 
   addNewContact() {
-    let data = this.ContactForm.value;
-    let datas = this.services.userDetails();
-    console.log(data);
-    let model: Contact= new Contact();
-    console.log(model);
-    model.id = null;
-    model.nom=data.nom;
-    model.prenom=data.prenom;
-    model.email=data.email ;
-    model.sujet=data.sujet;
-    model.message=data.message;
-
-
-
-    if (
-      data.nom == 0 ||
-      data.prenom == 0 ||
-      data.email == 0 ||
-      data.sujet == 0 ||
-      data.message == 0
-
-
-    ) {
-      this.messageCommande = `<div class="alert
-      alert-danger" role="alert">
-      remplir votre champ
-    </div>`;
-    } else {
-      this.services.addContact(model).subscribe(
-        (res) => {
-          console.log(res);
-
-          this.router.navigate(['/listeContact']);
-        },
-        (err) => {}
-      );
-      setTimeout(() => {
-        this.messageCommande = '';
-      }, 3000);
-    }
+  if (this.ContactForm.invalid) {
+    this.messageCommande = `
+      <div class="alert alert-danger" role="alert">
+        Veuillez remplir tous les champs obligatoires correctement.
+      </div>`;
+    return;
   }
 
+  const data = this.ContactForm.value;
+  const model: Contact = new Contact();
 
+  model.id = null;
+  model.nom = data.nom;
+  model.prenom = data.prenom;
+  model.email = data.email;
+  model.sujet = data.sujet;
+  model.message = data.message;
+
+  this.services.addContact(model).subscribe(
+    (res) => {
+      console.log(res);
+      this.messageCommande = `
+        <div class="alert alert-success" role="alert">
+          Votre message a été envoyé avec succès !
+        </div>`;
+
+      // Redirection après 2,5s
+      setTimeout(() => {
+        this.messageCommande = '';
+        this.router.navigate(['/listeContact']);
+      }, 2500);
+    },
+    (err) => {
+      this.messageCommande = `
+        <div class="alert alert-danger" role="alert">
+          Une erreur est survenue lors de l'envoi du message.
+        </div>`;
+    }
+  );
 }
-
+}
 
